@@ -1,0 +1,28 @@
+name: Auto-Merge PR
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+    branches: [main]
+
+jobs:
+  merge:
+    runs-on: ubuntu-latest
+    if: github.event.pull_request.draft == false
+    steps:
+      - name: Check if CI passes
+        id: check-ci
+        uses: actions/github-script@v6
+        with:
+          script: |
+            const { data: statuses } = await github.rest.repos.getCombinedStatusForRef({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              ref: context.payload.pull_request.head.sha
+            })
+            return statuses.state === 'success'
+
+      - name: Auto-merge PR
+        if: steps.check-ci.outputs.result == 'true'
+        run: bash scripts/merge_pr.sh
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
