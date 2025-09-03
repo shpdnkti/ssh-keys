@@ -94,7 +94,7 @@ else
     --body "$PR_BODY" \
     --base main \
     --head "$BRANCH" \
-    --label "automation,security"
+    --label "auto‑merge"
 
   echo "✅ 已提交吊销 PR"
 fi
