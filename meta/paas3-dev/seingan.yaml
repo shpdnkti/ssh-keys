@@ -15,3 +15,8 @@ keys:
     added_at: "2025-09-03T10:08:16Z"
     expires_at: "2025-09-03T11:08:16Z"
     revoked: false
+  - filename: 2025-09-03_64698_rsa.pub
+    comment: seingan@paas3-dev
+    added_at: "2025-09-03T10:17:56Z"
+    expires_at: "2025-09-03T11:17:56Z"
+    revoked: false
