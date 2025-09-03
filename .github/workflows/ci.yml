@@ -6,11 +6,13 @@ permissions:
 
 on:
   push:
-    branches: [main]
+    paths:
+      - 'keys/**'
+      - 'meta/**'
   pull_request:
-    types: [opened]
+    types: [opened, synchronize, reopened]
   schedule:
-    - cron: '0 * * * *'
+    - cron: '30 * * * *'
   workflow_dispatch:
 
 jobs:
