@@ -1,4 +1,4 @@
-name: ssh-keys
+name: ci
 
 permissions:
   contents: write 
@@ -10,7 +10,7 @@ on:
   pull_request:
     branches: [ main ]
   schedule:
-    - cron: '0 * * * *'
+    - cron: '30 * * * *'
   workflow_dispatch:
 
 jobs:
@@ -20,6 +20,17 @@ jobs:
       - uses: actions/checkout@v4
       - name: Validate keys
         run: bash scripts/validate_keys.sh
+      - name: Create PR (if not on main)
+        if: github.ref != 'refs/heads/main'
+        run: |
+          BRANCH="${GITHUB_REF#refs/heads/}"
+          gh pr create \
+            --title "Add new SSH key (${BRANCH})" \
+            --body "Automated PR for key addition" \
+            --base main \
+            --head "${BRANCH}"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
   deploy:
     runs-on: ubuntu-latest
