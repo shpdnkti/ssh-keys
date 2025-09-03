@@ -1,28 +1,33 @@
 name: ssh-keys
 
 permissions:
-  contents: write
+  contents: write 
   pull-requests: write
-  issues: write
 
 on:
   push:
-    branches: ['*']
+    branches: [main]
   pull_request:
-    types: [opened, synchronize, reopened, ready_for_review]
+    types: [opened]
   schedule:
-    - cron: '30 * * * *'
-  workflow_dispatch: 
+    - cron: '0 * * * *'
+  workflow_dispatch:
 
 jobs:
-  create_pr:
-    if: github.ref != 'refs/heads/main' && github.event_name == 'push'
+  validate:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+      - name: Validate keys
+        run: bash scripts/validate_keys.sh
+
+  create_pr:
+    runs-on: ubuntu-latest
+    needs: validate
+    if: github.ref != 'refs/heads/main' && github.event_name == 'push'
+    steps:
+      - uses: actions/checkout@v4
       - name: Create PR
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           BRANCH="${GITHUB_REF#refs/heads/}"
           if gh pr view "${BRANCH}" --repo "${GITHUB_REPOSITORY}" >/dev/null 2>&1; then
@@ -36,44 +41,26 @@ jobs:
             --head "${BRANCH}" \
             --repo "${GITHUB_REPOSITORY}" \
             --label "auto‑merge"
-
-  validate_and_merge:
-    needs: [create_pr]
-    if: |
-      github.event_name == 'pull_request' ||
-      (github.event_name == 'push' && github.ref == 'refs/heads/main')
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - name: Run validation script
-        id: validate
-        run: bash scripts/validate_keys.sh
-      - name: Merge PR (gh cli)   # 只在 PR 场景执行
-        if: success() && github.event_name == 'pull_request'
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: |
-          PR_NUMBER="${{ github.event.pull_request.number }}"
-          echo "Merging PR #${PR_NUMBER}"
-          gh pr merge "${PR_NUMBER}" --merge --admin --repo "${GITHUB_REPOSITORY}"
 
   deploy:
-    needs: validate_and_merge
-    if: github.ref == 'refs/heads/main' && github.event_name == 'push'
     runs-on: ubuntu-latest
+    needs: validate
+    if: github.ref == 'refs/heads/main'
     steps:
       - uses: actions/checkout@v4
       - name: Deploy keys
+        run: bash scripts/deploy_keys.sh
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: bash scripts/deploy_keys.sh
 
   cleanup:
-    if: ${{ github.event_name == 'schedule' || github.event_name == 'workflow_dispatch' }}
     runs-on: ubuntu-latest
+    if: ${{ github.event_name == 'schedule' || github.event_name == 'workflow_dispatch' }}
     steps:
       - uses: actions/checkout@v4
       - name: Cleanup expired keys
+        run: bash scripts/cleanup_expired.sh
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: bash scripts/cleanup_expired.sh
