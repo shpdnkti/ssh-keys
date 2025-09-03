@@ -27,7 +27,7 @@ for env in $(list_environments); do
 
     KEYS_DIR="${REPO_ROOT}/keys/${env}"
     META_DIR="${REPO_ROOT}/meta/${env}"
-    OUTPUT_FILE="${REPO_ROOT}/authorized_keys.${env}"
+    OUTPUT_FILE="${REPO_ROOT}/authorized_keys/${env}"
 
     declare -a lines   # 用来收集最终的 key 行
 
@@ -68,6 +68,9 @@ for env in $(list_environments); do
     done
 
     # 写入文件（如果内容没有变化则不提交）
+    if [ ! -f $OUTPUT_FILE ]; then
+        touch "$OUTPUT_FILE"
+    fi
     {
         echo "# === AUTO‑GENERATED authorized_keys for ${env} ==="
         echo "# 生成时间: $(date -u +"%Y-%m-%dT%H:%M:%SZ")"
