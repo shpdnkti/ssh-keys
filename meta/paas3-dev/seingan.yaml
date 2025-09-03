@@ -1,0 +1,7 @@
+user: seingan
+keys:
+  - filename: 2025-09-03_8145_rsa.pub
+    comment: seingan@paas3-dev
+    added_at: "2025-09-03T03:08:49Z"
+    expires_at: "null"
+    revoked: false
