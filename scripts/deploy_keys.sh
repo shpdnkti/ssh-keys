@@ -79,13 +79,21 @@ for env in $(list_environments); do
     } > "$OUTPUT_FILE"
 
 
-    # 判断是否真的有改动
-    if git diff --quiet "$OUTPUT_FILE"; then
-        echo "✅ authorized_keys 未改变，跳过提交"
+    # 判断文件是否在 Git 中已跟踪
+    if git ls-files --error-unmatch "$OUTPUT_FILE" >/dev/null 2>&1; then
+        # 文件已跟踪，检查是否有修改
+        if git diff --quiet "$OUTPUT_FILE"; then
+            echo "✅ authorized_keys 未改变，跳过提交"
+            exit 0
+        fi
     else
-        git add "$OUTPUT_FILE"
-        git commit -m "CI: Update authorized_keys (generated $(date -u +"%Y-%m-%d"))"
-        git push origin HEAD
-        echo "✅ authorized_keys 已更新并提交"
+        # 文件未跟踪，视为有改动
+        echo "🆕 检测到新文件 $OUTPUT_FILE"
     fi
+
+    # 执行提交操作
+    git add "$OUTPUT_FILE"
+    git commit -m "CI: Update authorized_keys (generated $(date -u +"%Y-%m-%d"))"
+    git push origin HEAD
+    echo "✅ authorized_keys 已更新并提交"
 done
