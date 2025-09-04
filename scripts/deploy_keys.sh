@@ -69,6 +69,7 @@ for env in $(list_environments); do
 
     # 写入文件（如果内容没有变化则不提交）
     if [ ! -f $OUTPUT_FILE ]; then
+        mkdir -p "$(dirname "$OUTPUT_FILE")"
         touch "$OUTPUT_FILE"
     fi
     {
