@@ -1,0 +1,7 @@
+user: z-weip
+keys:
+  - filename: 2025-09-11_32890_rsa.pub
+    comment: z-weip@paas3-dev
+    added_at: "2025-09-11T10:02:42Z"
+    expires_at: "2026-03-12T22:02:42Z"
+    revoked: false
