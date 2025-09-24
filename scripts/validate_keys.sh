@@ -72,17 +72,15 @@ for env in $(list_environments); do
             fi
 
             # 检查是否已吊销
-            #if [[ "$revoked" == "true" ]]; then
-            #    die "$user/$filename 已被标记为 revoked"
-            #fi
-
-            # 检查是否已过期
-            if [[ -n "$expires_at" && "$expires_at" != "null" ]]; then
-                # 将 ISO 转为 epoch 秒比较
-                expires_epoch=$(date -d "$expires_at" +%s)
-                now_epoch=$(date -d "$NOW_UTC" +%s)
-                if (( now_epoch > expires_epoch )); then
-                    die "$user/$filename 已过期 (expires_at=$expires_at)"
+            if [[ "$revoked" != "true" ]]; then
+                # 检查是否已过期
+                if [[ -n "$expires_at" && "$expires_at" != "null" ]]; then
+                    # 将 ISO 转为 epoch 秒比较
+                    expires_epoch=$(date -d "$expires_at" +%s)
+                    now_epoch=$(date -d "$NOW_UTC" +%s)
+                    if (( now_epoch > expires_epoch )); then
+                        die "$user/$filename 已过期 (expires_at=$expires_at)"
+                    fi
                 fi
             fi
         done
