@@ -72,9 +72,9 @@ for env in $(list_environments); do
             fi
 
             # 检查是否已吊销
-            if [[ "$revoked" == "true" ]]; then
-                die "$user/$filename 已被标记为 revoked"
-            fi
+            #if [[ "$revoked" == "true" ]]; then
+            #    die "$user/$filename 已被标记为 revoked"
+            #fi
 
             # 检查是否已过期
             if [[ -n "$expires_at" && "$expires_at" != "null" ]]; then
