@@ -4,4 +4,5 @@ keys:
     comment: joker-joker-yuan@paas3-dev
     added_at: "2025-09-24T02:15:29Z"
     expires_at: "2025-10-01T02:15:29Z"
-    revoked: false
+    revoked: true
+    revoked_at: "2025-10-01T02:21:29Z"
