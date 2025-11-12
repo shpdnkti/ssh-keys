@@ -6,3 +6,8 @@ keys:
     expires_at: "2025-11-11T07:09:19Z"
     revoked: true
     revoked_at: "2025-11-11T07:42:05Z"
+  - filename: 2025-11-12_54169_rsa.pub
+    comment: abrance@paas3-dev
+    added_at: "2025-11-12T06:05:34Z"
+    expires_at: "2025-12-12T06:05:34Z"
+    revoked: false
