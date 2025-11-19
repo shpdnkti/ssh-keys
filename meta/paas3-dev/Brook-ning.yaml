@@ -1,0 +1,7 @@
+user: Brook-ning
+keys:
+  - filename: 2025-11-19_999_rsa.pub
+    comment: Brook-ning@paas3-dev
+    added_at: "2025-11-19T09:11:12Z"
+    expires_at: "2025-11-26T09:11:12Z"
+    revoked: false
