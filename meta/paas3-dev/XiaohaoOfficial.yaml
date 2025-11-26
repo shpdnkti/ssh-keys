@@ -4,4 +4,5 @@ keys:
     comment: XiaohaoOfficial@paas3-dev
     added_at: "2025-10-27T09:06:47Z"
     expires_at: "2025-11-26T09:06:47Z"
-    revoked: false
+    revoked: true
+    revoked_at: "2025-11-26T09:46:34Z"
