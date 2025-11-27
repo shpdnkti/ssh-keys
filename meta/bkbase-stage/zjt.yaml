@@ -1,0 +1,7 @@
+user: zjt
+keys:
+  - filename: 2025-11-27_49596_rsa.pub
+    comment: zjt@bkbase-stage
+    added_at: "2025-11-27T06:36:40Z"
+    expires_at: "2025-12-04T06:36:40Z"
+    revoked: false
