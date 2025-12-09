@@ -1,2 +1,4 @@
 environments:
   - paas3-dev
+  - bkbase-stage
+  - bk-ctrl
