@@ -10,4 +10,5 @@ keys:
     comment: abrance@paas3-dev
     added_at: "2025-11-12T06:05:34Z"
     expires_at: "2025-12-12T06:05:34Z"
-    revoked: false
+    revoked: true
+    revoked_at: "2025-12-12T06:56:44Z"
