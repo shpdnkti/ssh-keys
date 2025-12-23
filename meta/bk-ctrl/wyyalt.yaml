@@ -16,4 +16,5 @@ keys:
     comment: wyyalt@bk-ctrl
     added_at: "2025-12-23T02:06:02Z"
     expires_at: "2025-12-23T03:06:02Z"
-    revoked: false
+    revoked: true
+    revoked_at: "2025-12-23T03:49:24Z"
