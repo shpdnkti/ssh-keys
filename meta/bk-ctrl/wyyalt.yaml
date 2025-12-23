@@ -12,3 +12,8 @@ keys:
     expires_at: "2025-12-18T07:12:51Z"
     revoked: true
     revoked_at: "2025-12-18T07:43:35Z"
+  - filename: 2025-12-23_604_rsa.pub
+    comment: wyyalt@bk-ctrl
+    added_at: "2025-12-23T02:06:02Z"
+    expires_at: "2025-12-23T03:06:02Z"
+    revoked: false
