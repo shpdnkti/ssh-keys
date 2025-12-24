@@ -18,3 +18,8 @@ keys:
     expires_at: "2025-12-23T03:06:02Z"
     revoked: true
     revoked_at: "2025-12-23T03:49:24Z"
+  - filename: 2025-12-24_49710_rsa.pub
+    comment: wyyalt@bk-ctrl
+    added_at: "2025-12-24T03:57:07Z"
+    expires_at: "2026-01-23T03:57:07Z"
+    revoked: false
