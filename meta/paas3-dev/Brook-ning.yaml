@@ -12,3 +12,8 @@ keys:
     expires_at: "2025-12-16T08:58:46Z"
     revoked: true
     revoked_at: "2025-12-16T09:49:24Z"
+  - filename: 2025-12-25_51501_rsa.pub
+    comment: Brook-ning@paas3-dev
+    added_at: "2025-12-25T07:05:47Z"
+    expires_at: "2026-06-25T19:05:47Z"
+    revoked: false
