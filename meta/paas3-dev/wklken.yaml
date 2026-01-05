@@ -6,3 +6,8 @@ keys:
     expires_at: "2025-12-26T01:48:58Z"
     revoked: true
     revoked_at: "2025-12-26T02:28:47Z"
+  - filename: 2026-01-05_33168_rsa.pub
+    comment: wklken@paas3-dev
+    added_at: "2026-01-05T08:47:02Z"
+    expires_at: "2026-02-04T08:47:02Z"
+    revoked: false
