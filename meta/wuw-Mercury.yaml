@@ -1,0 +1,9 @@
+user: wuw-Mercury
+environments:
+  - paas3-dev
+keys:
+  - filename: 2025-12-18_57638_rsa.pub
+    comment: wuw-Mercury@paas3-dev
+    added_at: "2025-12-18T02:23:55Z"
+    expires_at: "2026-06-18T14:23:55Z"
+    revoked: false

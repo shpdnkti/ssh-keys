@@ -1,7 +1,0 @@
-user: jsonwan
-keys:
-  - filename: 2025-12-24_48284_rsa.pub
-    comment: jsonwan@bk-ctrl
-    added_at: "2025-12-24T02:45:04Z"
-    expires_at: "2026-06-24T14:45:04Z"
-    revoked: false

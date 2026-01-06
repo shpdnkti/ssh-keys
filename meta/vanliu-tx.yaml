@@ -1,0 +1,9 @@
+user: vanliu-tx
+environments:
+  - bk-ctrl
+keys:
+  - filename: 2026-01-06_61459_rsa.pub
+    comment: vanliu-tx@bk-ctrl
+    added_at: "2026-01-06T08:11:28Z"
+    expires_at: "2026-07-07T20:11:28Z"
+    revoked: false

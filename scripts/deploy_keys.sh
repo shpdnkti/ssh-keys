@@ -25,8 +25,8 @@ list_environments() {
 for env in $(list_environments); do
     echo "🚀 正在生成 authorized_keys for 环境: $env"
 
-    KEYS_DIR="${REPO_ROOT}/keys/${env}"
-    META_DIR="${REPO_ROOT}/meta/${env}"
+    KEYS_DIR="${REPO_ROOT}/keys"
+    META_DIR="${REPO_ROOT}/meta"
     OUTPUT_FILE="${REPO_ROOT}/authorized_keys/${env}"
 
     declare -a lines   # 用来收集最终的 key 行
@@ -35,6 +35,9 @@ for env in $(list_environments); do
     for meta_file in "${META_DIR}"/*.yaml; do
         [[ -f "$meta_file" ]] || continue
         user=$(yq e '.user' "$meta_file")
+        # 检查用户是否允许访问此环境
+        environments=$(yq e '.environments[]' "$meta_file")
+        if [[ ! " ${environments[*]} " =~ " $env " ]]; then continue; fi
         key_count=$(yq e '.keys | length' "$meta_file")
         for i in $(seq 0 $((key_count-1))); do
             filename=$(yq e ".keys[$i].filename" "$meta_file")
@@ -83,8 +86,8 @@ for env in $(list_environments); do
     if git ls-files --error-unmatch "$OUTPUT_FILE" >/dev/null 2>&1; then
         # 文件已跟踪，检查是否有修改
         if git diff --quiet "$OUTPUT_FILE"; then
-            echo "✅ authorized_keys 未改变，跳过提交"
-            exit 0
+            echo "✅ authorized_keys for $env 未改变，跳过提交"
+            continue
         fi
     else
         # 文件未跟踪，视为有改动
@@ -93,7 +96,7 @@ for env in $(list_environments); do
 
     # 执行提交操作
     git add "$OUTPUT_FILE"
-    git commit -m "CI: Update authorized_keys (generated $(date -u +"%Y-%m-%d"))"
+    git commit -m "CI: Update authorized_keys for $env (generated $(date -u +"%Y-%m-%d"))"
     git push origin HEAD
-    echo "✅ authorized_keys 已更新并提交"
+    echo "✅ authorized_keys for $env 已更新并提交"
 done

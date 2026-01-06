@@ -1,0 +1,15 @@
+user: alexmahone69
+environments:
+  - paas3-dev
+keys:
+  - filename: 2025-09-10_57846_rsa.pub
+    comment: alexmahone69@paas3-dev
+    added_at: "2025-09-10T08:29:50Z"
+    expires_at: "2025-09-17T08:29:50Z"
+    revoked: true
+    revoked_at: "2025-09-17T08:47:39Z"
+  - filename: 2025-12-24_6881_rsa.pub
+    comment: alexmahone69@paas3-dev
+    added_at: "2025-12-24T02:22:13Z"
+    expires_at: "2026-06-24T14:22:13Z"
+    revoked: false

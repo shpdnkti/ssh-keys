@@ -29,11 +29,9 @@ BRANCH=main
 # ------------------- 主逻辑 -------------------
 declare -a revoked_keys   # 用于 PR body
 
-for env in $(list_environments); do
-  echo "🧹 清理环境: $env"
-  META_DIR="$REPO_ROOT/meta/$env"
+META_DIR="$REPO_ROOT/meta"
 
-  for meta_file in "$META_DIR"/*.yaml; do
+for meta_file in "$META_DIR"/*.yaml; do
     [[ -f "$meta_file" ]] || continue
     user=$(yq e '.user' "$meta_file")
     
@@ -67,11 +65,10 @@ for env in $(list_environments); do
         " "$meta_file"
         
         # 记录到数组，供后面 PR Body 使用
-        revoked_keys+=("$env/$user: $filename")
+        revoked_keys+=("$user: $filename")
       fi
     done
   done
-done
 
 # ------------------- 提交 & PR -------------------
 if git diff --quiet; then

@@ -1,0 +1,10 @@
+user: QuenKar
+environments:
+  - bk-ctrl
+keys:
+  - filename: 2025-12-30_14409_rsa.pub
+    comment: QuenKar@bk-ctrl
+    added_at: "2025-12-30T08:13:26Z"
+    expires_at: "2026-01-06T08:13:26Z"
+    revoked: true
+    revoked_at: "2026-01-06T08:55:53Z"

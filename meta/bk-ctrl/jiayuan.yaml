@@ -1,7 +1,0 @@
-user: jiayuan
-keys:
-  - filename: 2025-12-31_40511_rsa.pub
-    comment: jiayuan@bk-ctrl
-    added_at: "2025-12-31T10:41:18Z"
-    expires_at: "2026-07-01T22:41:18Z"
-    revoked: false

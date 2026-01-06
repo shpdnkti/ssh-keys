@@ -1,0 +1,9 @@
+user: gongzhaolong
+environments:
+  - paas3-dev
+keys:
+  - filename: 2026-01-04_50335_rsa.pub
+    comment: gongzhaolong@paas3-dev
+    added_at: "2026-01-04T04:08:16Z"
+    expires_at: "2026-07-05T16:08:16Z"
+    revoked: false
