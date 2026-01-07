@@ -98,4 +98,5 @@ for env in $(list_environments); do
     git commit -m "CI: Update authorized_keys for $env (generated $(date -u +"%Y-%m-%d"))"
     git push origin HEAD
     echo "✅ authorized_keys for $env 已更新并提交"
+    unset lines
 done
