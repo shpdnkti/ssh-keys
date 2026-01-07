@@ -35,14 +35,15 @@ for env in $(list_environments); do
     for meta_file in "${META_DIR}"/*.yaml; do
         [[ -f "$meta_file" ]] || continue
         user=$(yq e '.user' "$meta_file")
-        # 检查用户是否允许访问此环境
-        environments=$(yq e '.environments[]' "$meta_file")
-        if [[ ! " ${environments[*]} " =~ " $env " ]]; then continue; fi
         key_count=$(yq e '.keys | length' "$meta_file")
         for i in $(seq 0 $((key_count-1))); do
             filename=$(yq e ".keys[$i].filename" "$meta_file")
             revoked=$(yq e ".keys[$i].revoked" "$meta_file")
             expires_at=$(yq e ".keys[$i].expires_at" "$meta_file")
+            # 获取密钥的环境
+            environments=$(yq e ".keys[$i].environments[]" "$meta_file")
+            # 检查是否允许访问当前环境
+            if [[ ! " ${environments[*]} " =~ " $env " && ! " ${environments[*]} " =~ " all " ]]; then continue; fi
             # 跳过已吊销
             if [[ "$revoked" == "true" ]]; then continue; fi
             # 跳过已过期

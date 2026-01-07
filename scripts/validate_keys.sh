@@ -46,17 +46,6 @@ for meta_file in "${META_DIR}"/*.yaml; do
     user=$(yq e '.user' "$meta_file")
     [[ -n "$user" ]] || die "$meta_file 缺少 user 字段"
 
-    # 检查 environments 字段
-    env_count=$(yq e '.environments | length' "$meta_file")
-    [[ "$env_count" -gt 0 ]] || die "$meta_file 缺少或空的 environments 字段"
-    for ((j=0; j<env_count; j++)); do
-        env=$(yq e ".environments[$j]" "$meta_file")
-        # 检查 env 是否在 envs.yaml 中
-        if ! list_environments | grep -q "^$env$"; then
-            die "$meta_file 中的环境 $env 不在 envs.yaml 中定义"
-        fi
-    done
-
     # 读取 keys 数组
     key_count=$(yq e '.keys | length' "$meta_file")
     for i in $(seq 0 $((key_count-1))); do
@@ -65,6 +54,18 @@ for meta_file in "${META_DIR}"/*.yaml; do
         added_at=$(yq e ".keys[$i].added_at" "$meta_file")
         expires_at=$(yq e ".keys[$i].expires_at" "$meta_file")
         revoked=$(yq e ".keys[$i].revoked" "$meta_file")
+
+        # 检查 environments 字段
+        env_count=$(yq e ".keys[$i].environments | length" "$meta_file")
+        [[ "$env_count" -gt 0 ]] || die "$meta_file 中密钥 $filename 缺少或空的 environments 字段"
+        for ((j=0; j<env_count; j++)); do
+            env=$(yq e ".keys[$i].environments[$j]" "$meta_file")
+            #echo "DEBUG: env='$env'"
+            # 检查 env 是否在 envs.yaml 中或为 "all"
+            if [[ "$env" != "all" ]] && ! list_environments | grep -q "^$env$"; then
+                die "$meta_file 中密钥 $filename 的环境 $env 不在 envs.yaml 中定义"
+            fi
+        done
 
         key_path="${KEYS_DIR}/${user}/${filename}"
         [[ -f "$key_path" ]] || die "元数据中列出的 $key_path 不存在"

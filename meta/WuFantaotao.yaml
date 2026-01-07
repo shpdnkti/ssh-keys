@@ -1,9 +1,9 @@
 user: WuFantaotao
-environments:
-  - bk-ctrl
 keys:
   - filename: 2025-12-30_45847_rsa.pub
     comment: WuFantaotao@bk-ctrl
     added_at: "2025-12-30T03:34:17Z"
     expires_at: "2026-01-29T03:34:17Z"
     revoked: false
+    environments:
+      - bk-ctrl

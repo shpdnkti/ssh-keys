@@ -1,9 +1,9 @@
 user: jamesgetx
-environments:
-  - bk-ctrl
 keys:
   - filename: 2025-12-16_33190_rsa.pub
     comment: jamesgetx@bk-ctrl
     added_at: "2025-12-16T11:42:23Z"
     expires_at: "null"
     revoked: false
+    environments:
+      - bk-ctrl

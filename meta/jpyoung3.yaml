@@ -1,6 +1,4 @@
 user: jpyoung3
-environments:
-  - bk-ctrl
 keys:
   - filename: 2025-12-17_25377_rsa.pub
     comment: jpyoung3@bk-ctrl
@@ -8,3 +6,5 @@ keys:
     expires_at: "2025-12-24T06:56:45Z"
     revoked: true
     revoked_at: "2025-12-24T06:57:11Z"
+    environments:
+      - bk-ctrl
