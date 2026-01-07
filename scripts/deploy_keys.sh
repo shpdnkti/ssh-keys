@@ -40,10 +40,8 @@ for env in $(list_environments); do
             filename=$(yq e ".keys[$i].filename" "$meta_file")
             revoked=$(yq e ".keys[$i].revoked" "$meta_file")
             expires_at=$(yq e ".keys[$i].expires_at" "$meta_file")
-            # 获取密钥的环境
-            environments=$(yq e ".keys[$i].environments[]" "$meta_file")
             # 检查是否允许访问当前环境
-            if [[ ! " ${environments[*]} " =~ " $env " && ! " ${environments[*]} " =~ " all " ]]; then continue; fi
+            if ! yq e ".keys[$i].environments[] | select(. == \"$env\" or . == \"all\")" "$meta_file" | grep -q .; then continue; fi
             # 跳过已吊销
             if [[ "$revoked" == "true" ]]; then continue; fi
             # 跳过已过期

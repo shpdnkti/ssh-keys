@@ -10,17 +10,17 @@ This repository manages SSH public keys for multiple environments (paas3-dev, bk
 - **authorized_keys**: Auto-generated files in `authorized_keys/{env}` with SSH keys and comments
 
 ## Key Data Structures
-Metadata file example (`meta/adevjoe.yaml`):
+Metadata file example (`meta/shpdnkti.yaml`):
 ```yaml
-user: adevjoe
-environments:
-  - bk-ctrl
+user: shpdnkti
 keys:
-  - filename: 2025-12-18_49599_rsa.pub
-    comment: adevjoe@bk-ctrl
-    added_at: "2025-12-18T02:20:58Z"
-    expires_at: "2026-06-18T14:20:58Z"
+  - filename: 2025-09-04_4155_rsa.pub
+    comment: shpdnkti@paas3-dev
+    added_at: "2025-09-04T03:44:26Z"
+    expires_at: "null"
     revoked: false
+    environments:
+      - paas3-dev
 ```
 
 Authorized keys format: `ssh-rsa AAAAB3... user:filename`
