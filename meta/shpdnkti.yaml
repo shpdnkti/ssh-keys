@@ -6,7 +6,7 @@ keys:
     expires_at: "null"
     revoked: false
     environments:
-      - paas3-dev
+      - all
   - filename: 2025-11-17_12826_rsa.pub
     comment: shpdnkti@paas3-dev
     added_at: "2025-11-17T03:49:07Z"
