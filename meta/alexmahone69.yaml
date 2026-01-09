@@ -15,3 +15,11 @@ keys:
     revoked: false
     environments:
       - paas3-dev
+  - filename: 2026-01-09_16065_rsa.pub
+    comment: alexmahone69@16065
+    added_at: 2026-01-09T08:31:12Z
+    expires_at: null
+    revoked: false
+    environments:
+      - bk-ctrl
+    remark: ''
