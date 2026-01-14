@@ -20,6 +20,7 @@ keys:
     comment: abrance@paas3-dev
     added_at: "2025-12-15T01:48:41Z"
     expires_at: "2026-01-14T01:48:41Z"
-    revoked: false
+    revoked: true
     environments:
       - paas3-dev
+    revoked_at: "2026-01-14T02:38:24Z"
