@@ -21,3 +21,11 @@ keys:
     revoked: false
     environments:
       - paas3-dev
+  - filename: 2026-01-15_23232_rsa.pub
+    comment: shpdnkti@23232
+    added_at: 2026-01-15T07:39:13Z
+    expires_at: 2026-07-16T19:39:13Z
+    revoked: false
+    environments:
+      - bk-ctrl
+    remark: loongjiang
