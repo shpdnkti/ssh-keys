@@ -7,3 +7,11 @@ keys:
     revoked: false
     environments:
       - bk-ctrl
+  - filename: 2026-01-16_5225_rsa.pub
+    comment: vanliu-tx@5225
+    added_at: 2026-01-16T04:10:53Z
+    expires_at: 2026-01-23T04:10:53Z
+    revoked: false
+    environments:
+      - paas3-dev
+    remark: ''
