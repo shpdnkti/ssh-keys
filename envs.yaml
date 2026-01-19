@@ -3,3 +3,4 @@ environments:
   - bkbase-stage
   - bk-ctrl
   - migrate-test
+  - bk-pmc
