@@ -1,0 +1,10 @@
+user: liuliaozhong-canway
+keys:
+  - filename: 2026-01-19_13406_rsa.pub
+    comment: liuliaozhong-canway@13406
+    added_at: 2026-01-19T09:26:38Z
+    expires_at: 2026-07-20T21:26:38Z
+    revoked: false
+    environments:
+      - bk-pmc
+    remark: 嘉为科技联合开发：刘潦忠
