@@ -7,3 +7,11 @@ keys:
     revoked: false
     environments:
       - bk-ctrl
+  - filename: 2026-01-19_4660_rsa.pub
+    comment: jsonwan@4660
+    added_at: 2026-01-19T08:42:32Z
+    expires_at: 2026-07-20T20:42:32Z
+    revoked: false
+    environments:
+      - bk-pmc
+    remark: ''
