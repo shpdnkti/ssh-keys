@@ -23,3 +23,12 @@ keys:
     environments:
       - all
     remark: ''
+  - filename: 2026-01-19_21008_rsa.pub
+    comment: alexmahone69@21008
+    added_at: 2026-01-19T09:17:06Z
+    expires_at: null
+    revoked: false
+    environments:
+      - bk-pmc
+      - bk-ctrl
+    remark: ''
