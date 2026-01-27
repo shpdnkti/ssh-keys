@@ -1,0 +1,10 @@
+user: shuai-zhe
+keys:
+  - filename: 2026-01-27_55449_rsa.pub
+    comment: shuai-zhe@55449
+    added_at: 2026-01-27T06:33:35Z
+    expires_at: 2026-07-28T18:33:35Z
+    revoked: false
+    environments:
+      - paas3-dev
+    remark: ''
