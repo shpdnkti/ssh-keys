@@ -12,9 +12,10 @@ keys:
     comment: wklken@paas3-dev
     added_at: "2026-01-05T08:47:02Z"
     expires_at: "2026-02-04T08:47:02Z"
-    revoked: false
+    revoked: true
     environments:
       - paas3-dev
+    revoked_at: "2026-02-04T09:09:10Z"
   - filename: 2026-01-19_10380_rsa.pub
     comment: wklken@10380
     added_at: 2026-01-19T09:02:59Z
