@@ -24,3 +24,11 @@ keys:
     environments:
       - bk-pmc
     remark: ''
+  - filename: 2026-02-06_51043_rsa.pub
+    comment: wklken@51043
+    added_at: 2026-02-06T06:16:22Z
+    expires_at: 2026-08-07T18:16:22Z
+    revoked: false
+    environments:
+      - paas3-dev
+    remark: ''
