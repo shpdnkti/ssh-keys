@@ -16,3 +16,11 @@ keys:
     environments:
       - paas3-dev
     remark: jaysunchen
+  - filename: 2026-02-09_56450_rsa.pub
+    comment: jay3cx@56450
+    added_at: 2026-02-09T06:37:56Z
+    expires_at: 2026-08-10T18:37:56Z
+    revoked: false
+    environments:
+      - paas3-dev
+    remark: jaysunchen
