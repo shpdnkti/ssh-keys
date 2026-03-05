@@ -7,3 +7,11 @@ keys:
     revoked: false
     environments:
       - paas3-dev
+  - filename: 2026-03-05_64805_rsa.pub
+    comment: pegasusljn@64805
+    added_at: 2026-03-05T14:45:07Z
+    expires_at: 2026-09-04T02:45:07Z
+    revoked: false
+    environments:
+      - paas3-dev
+    remark: ''
