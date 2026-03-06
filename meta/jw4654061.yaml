@@ -1,0 +1,10 @@
+user: jw4654061
+keys:
+  - filename: 2026-03-06_13783_rsa.pub
+    comment: jw4654061@13783
+    added_at: 2026-03-06T08:30:13Z
+    expires_at: 2026-09-02T08:30:13Z
+    revoked: false
+    environments:
+      - paas3-dev
+    remark: WeCom_SelfService_Apply
