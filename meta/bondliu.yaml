@@ -1,0 +1,10 @@
+user: bondliu
+keys:
+  - filename: 2026-03-06_24593_rsa.pub
+    comment: bondliu@24593
+    added_at: 2026-03-06T03:30:03Z
+    expires_at: 2026-09-02T03:30:03Z
+    revoked: false
+    environments:
+      - paas3-dev
+    remark: WeCom_SelfService_Apply
