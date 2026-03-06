@@ -1,0 +1,10 @@
+user: gertter
+keys:
+  - filename: 2026-03-06_64780_rsa.pub
+    comment: gertter@64780
+    added_at: 2026-03-06T08:47:51Z
+    expires_at: 2026-09-04T20:47:51Z
+    revoked: false
+    environments:
+      - paas3-dev
+    remark: ''
