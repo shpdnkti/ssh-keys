@@ -16,6 +16,13 @@ REPO_ROOT="$(git rev-parse --show-toplevel)"
 ISO8601='%Y-%m-%dT%H:%M:%SZ'
 NOW_UTC=$(date -u +"$ISO8601")
 
+# 优先使用工程 bin 目录下的 yq
+if [[ -x "${REPO_ROOT}/bin/yq" ]]; then
+  YQ="${REPO_ROOT}/bin/yq"
+else
+  YQ="yq"
+fi
+
 # ---------- 辅助函数 ----------
 die() { echo "❌ $*" >&2; exit 1; }
 
@@ -31,7 +38,7 @@ check_pubkey_format() {
 list_environments() {
   local yaml="${REPO_ROOT}/envs.yaml"
   # yq 会把数组打印成每行一个元素
-  yq e '.environments[]' "$yaml"
+  $YQ e '.environments[]' "$yaml"
 }
 
 # ---------- 主体 ----------
@@ -43,23 +50,23 @@ META_DIR="${REPO_ROOT}/meta"
 # 1) 遍历所有 meta/*.yaml
 for meta_file in "${META_DIR}"/*.yaml; do
     [[ -f "$meta_file" ]] || continue
-    user=$(yq e '.user' "$meta_file")
+    user=$($YQ e '.user' "$meta_file")
     [[ -n "$user" ]] || die "$meta_file 缺少 user 字段"
 
     # 读取 keys 数组
-    key_count=$(yq e '.keys | length' "$meta_file")
+    key_count=$($YQ e '.keys | length' "$meta_file")
     for i in $(seq 0 $((key_count-1))); do
-        filename=$(yq e ".keys[$i].filename" "$meta_file")
-        comment=$(yq e ".keys[$i].comment" "$meta_file")
-        added_at=$(yq e ".keys[$i].added_at" "$meta_file")
-        expires_at=$(yq e ".keys[$i].expires_at" "$meta_file")
-        revoked=$(yq e ".keys[$i].revoked" "$meta_file")
+        filename=$($YQ e ".keys[$i].filename" "$meta_file")
+        comment=$($YQ e ".keys[$i].comment" "$meta_file")
+        added_at=$($YQ e ".keys[$i].added_at" "$meta_file")
+        expires_at=$($YQ e ".keys[$i].expires_at" "$meta_file")
+        revoked=$($YQ e ".keys[$i].revoked" "$meta_file")
 
         # 检查 environments 字段
-        env_count=$(yq e ".keys[$i].environments | length" "$meta_file")
+        env_count=$($YQ e ".keys[$i].environments | length" "$meta_file")
         [[ "$env_count" -gt 0 ]] || die "$meta_file 中密钥 $filename 缺少或空的 environments 字段"
         for ((j=0; j<env_count; j++)); do
-            env=$(yq e ".keys[$i].environments[$j]" "$meta_file")
+            env=$($YQ e ".keys[$i].environments[$j]" "$meta_file")
             #echo "DEBUG: env='$env'"
             # 检查 env 是否在 envs.yaml 中或为 "all"
             if [[ "$env" != "all" ]] && ! list_environments | grep -q "^$env$"; then
@@ -104,7 +111,7 @@ for user_dir in "${KEYS_DIR}"/*/; do
     [[ -f "$meta_file" ]] || die "用户 $user 没有对应的 meta 文件 ${meta_file}"
 
     # 收集 meta 中登记的文件名集合
-    mapfile -t meta_filenames < <(yq e '.keys[].filename' "$meta_file")
+    mapfile -t meta_filenames < <($YQ e '.keys[].filename' "$meta_file")
     declare -A meta_set
     for fn in "${meta_filenames[@]}"; do
         meta_set["$fn"]=1

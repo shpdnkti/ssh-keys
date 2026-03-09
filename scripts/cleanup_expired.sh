@@ -10,6 +10,13 @@ set -euo pipefail
 REPO_ROOT="$(git rev-parse --show-toplevel)"
 ISO8601='%Y-%m-%dT%H:%M:%SZ'
 
+# 优先使用工程 bin 目录下的 yq
+if [[ -x "${REPO_ROOT}/bin/yq" ]]; then
+  YQ="${REPO_ROOT}/bin/yq"
+else
+  YQ="yq"
+fi
+
 # 当前 UTC 时间（ISO8601）以及 epoch 秒数，后者用于比较
 NOW_UTC=$(date -u +"$ISO8601")
 NOW_EPOCH=$(date -u +%s)
@@ -19,7 +26,7 @@ git config user.email "actions@github.com"
 git config user.name "GitHub Actions"
 
 # ------------------- 辅助函数 -------------------
-list_environments() { yq e '.environments[]' "$REPO_ROOT/envs.yaml"; }
+list_environments() { $YQ e '.environments[]' "$REPO_ROOT/envs.yaml"; }
 
 # ------------------- 创建分支 -------------------
 BRANCH=main
@@ -33,22 +40,22 @@ META_DIR="$REPO_ROOT/meta"
 
 for meta_file in "$META_DIR"/*.yaml; do
     [[ -f "$meta_file" ]] || continue
-    user=$(yq e '.user' "$meta_file")
+    user=$($YQ e '.user' "$meta_file")
     
     # 获取密钥数量
-    key_count=$(yq e '.keys | length' "$meta_file")
+    key_count=$($YQ e '.keys | length' "$meta_file")
     
     # 遍历所有密钥
     for ((i=0; i<key_count; i++)); do
       # 检查密钥是否已撤销或没有过期时间
-      revoked=$(yq e ".keys[$i].revoked" "$meta_file")
-      expires_at=$(yq e ".keys[$i].expires_at" "$meta_file")
+      revoked=$($YQ e ".keys[$i].revoked" "$meta_file")
+      expires_at=$($YQ e ".keys[$i].expires_at" "$meta_file")
       
       # 跳过已撤销或没有过期时间的密钥
       [[ "$revoked" == "true" || -z "$expires_at" || "$expires_at" == "null" ]] && continue
       
       # 获取文件名
-      filename=$(yq e ".keys[$i].filename" "$meta_file")
+      filename=$($YQ e ".keys[$i].filename" "$meta_file")
       
       # 把 ISO8601 转成 epoch 秒
       expires_epoch=$(date -u -d "$expires_at" +%s 2>/dev/null || echo 0)
@@ -59,7 +66,7 @@ for meta_file in "$META_DIR"/*.yaml; do
       # 已过期 → 需要撤销
       if (( expires_epoch <= NOW_EPOCH )); then
         # 用 yq 原地修改对应下标的键
-        yq e -i "
+        $YQ e -i "
           .keys[$i].revoked = true |
           .keys[$i].revoked_at = \"$NOW_UTC\"
         " "$meta_file"

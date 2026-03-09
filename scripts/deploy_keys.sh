@@ -12,6 +12,13 @@ REPO_ROOT="$(git rev-parse --show-toplevel)"
 ISO8601='%Y-%m-%dT%H:%M:%SZ'
 NOW_UTC=$(date -u +"$ISO8601")
 
+# 优先使用工程 bin 目录下的 yq
+if [[ -x "${REPO_ROOT}/bin/yq" ]]; then
+  YQ="${REPO_ROOT}/bin/yq"
+else
+  YQ="yq"
+fi
+
 # 设置 Git 用户信息（GitHub Actions 需要）
 git config user.email "actions@github.com"
 git config user.name "GitHub Actions"
@@ -19,7 +26,7 @@ git config user.name "GitHub Actions"
 list_environments() {
   local yaml="${REPO_ROOT}/envs.yaml"
   # yq 会把数组打印成每行一个元素
-  yq e '.environments[]' "$yaml"
+  $YQ e '.environments[]' "$yaml"
 }
 
 for env in $(list_environments); do
@@ -34,14 +41,14 @@ for env in $(list_environments); do
     # 遍历所有 meta 文件
     for meta_file in "${META_DIR}"/*.yaml; do
         [[ -f "$meta_file" ]] || continue
-        user=$(yq e '.user' "$meta_file")
-        key_count=$(yq e '.keys | length' "$meta_file")
+        user=$($YQ e '.user' "$meta_file")
+        key_count=$($YQ e '.keys | length' "$meta_file")
         for i in $(seq 0 $((key_count-1))); do
-            filename=$(yq e ".keys[$i].filename" "$meta_file")
-            revoked=$(yq e ".keys[$i].revoked" "$meta_file")
-            expires_at=$(yq e ".keys[$i].expires_at" "$meta_file")
+            filename=$($YQ e ".keys[$i].filename" "$meta_file")
+            revoked=$($YQ e ".keys[$i].revoked" "$meta_file")
+            expires_at=$($YQ e ".keys[$i].expires_at" "$meta_file")
             # 检查是否允许访问当前环境
-            if ! yq e ".keys[$i].environments[] | select(. == \"$env\" or . == \"all\")" "$meta_file" | grep -q .; then continue; fi
+            if ! $YQ e ".keys[$i].environments[] | select(. == \"$env\" or . == \"all\")" "$meta_file" | grep -q .; then continue; fi
             # 跳过已吊销
             if [[ "$revoked" == "true" ]]; then continue; fi
             # 跳过已过期
