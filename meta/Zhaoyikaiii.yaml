@@ -1,0 +1,10 @@
+user: Zhaoyikaiii
+keys:
+  - filename: 2026-03-09_58446_rsa.pub
+    comment: Zhaoyikaiii@58446
+    added_at: 2026-03-09T09:11:14Z
+    expires_at: 2026-09-05T09:11:14Z
+    revoked: false
+    environments:
+      - paas3-dev
+    remark: WeCom_SelfService_Apply
