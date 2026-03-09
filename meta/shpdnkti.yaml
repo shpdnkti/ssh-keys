@@ -45,3 +45,11 @@ keys:
     environments:
       - bk-ctrl
     remark: WeCom_SelfService_Apply
+  - filename: 2026-03-09_47157_rsa.pub
+    comment: shpdnkti@47157
+    added_at: 2026-03-09T11:24:32Z
+    expires_at: 2026-09-05T11:24:32Z
+    revoked: false
+    environments:
+      - paas3-dev
+    remark: WeCom_SelfService_Apply
