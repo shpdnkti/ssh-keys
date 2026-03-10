@@ -1,0 +1,10 @@
+user: ZhuoZhuoCrayon
+keys:
+  - filename: 2026-03-10_60741_rsa.pub
+    comment: ZhuoZhuoCrayon@60741
+    added_at: 2026-03-10T02:31:01Z
+    expires_at: 2026-04-09T02:31:01Z
+    revoked: false
+    environments:
+      - bk-ctrl
+    remark: ''
