@@ -1,0 +1,10 @@
+user: jorda95225
+keys:
+  - filename: 2026-03-12_30723_rsa.pub
+    comment: jorda95225@30723
+    added_at: 2026-03-12T08:24:26Z
+    expires_at: 2026-09-08T08:24:26Z
+    revoked: false
+    environments:
+      - paas3-dev
+    remark: WeCom_SelfService_Apply
