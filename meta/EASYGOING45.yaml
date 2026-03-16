@@ -1,0 +1,10 @@
+user: EASYGOING45
+keys:
+  - filename: 2026-03-16_20551_rsa.pub
+    comment: EASYGOING45@20551
+    added_at: 2026-03-16T07:32:33Z
+    expires_at: 2026-09-12T07:32:33Z
+    revoked: false
+    environments:
+      - paas3-dev
+    remark: WeCom_SelfService_Apply
