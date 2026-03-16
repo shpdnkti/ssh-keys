@@ -41,3 +41,11 @@ keys:
       - bk-ctrl
     remark: ''
     revoked_at: "2026-02-28T02:57:57Z"
+  - filename: 2026-03-16_62669_rsa.pub
+    comment: wyyalt@62669
+    added_at: 2026-03-16T08:11:09Z
+    expires_at: 2026-03-17T08:11:09Z
+    revoked: false
+    environments:
+      - paas3-dev
+    remark: ''
