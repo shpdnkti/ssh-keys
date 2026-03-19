@@ -1,0 +1,10 @@
+user: canway-qingliu
+keys:
+  - filename: 2026-03-19_18281_rsa.pub
+    comment: canway-qingliu@18281
+    added_at: 2026-03-19T03:18:45Z
+    expires_at: 2026-09-15T03:18:45Z
+    revoked: false
+    environments:
+      - paas3-dev
+    remark: WeCom_SelfService_Apply
