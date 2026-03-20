@@ -8,3 +8,11 @@ keys:
     environments:
       - bk-pmc
     remark: 嘉为科技联合开发：刘潦忠
+  - filename: 2026-03-20_31104_rsa.pub
+    comment: liuliaozhong-canway@31104
+    added_at: 2026-03-20T07:37:17Z
+    expires_at: 2026-09-18T19:37:17Z
+    revoked: false
+    environments:
+      - paas3-dev
+    remark: 嘉为科技联合开发：刘潦忠
