@@ -23,14 +23,6 @@ keys:
     environments:
       - bk-pmc
     remark: jsonwan
-  - filename: 2026-03-20_42780_rsa.pub
-    comment: jsonwan@42780
-    added_at: 2026-03-20T06:43:49Z
-    expires_at: 2026-09-18T18:43:49Z
-    revoked: false
-    environments:
-      - paas3-dev
-    remark: 公司办公机
   - filename: 2026-03-20_60037_rsa.pub
     comment: jsonwan@60037
     added_at: 2026-03-20T06:43:55Z
