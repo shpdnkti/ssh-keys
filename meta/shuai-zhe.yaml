@@ -8,3 +8,11 @@ keys:
     environments:
       - paas3-dev
     remark: ''
+  - filename: 2026-03-20_22893_rsa.pub
+    comment: shuai-zhe@22893
+    added_at: 2026-03-20T07:33:22Z
+    expires_at: 2026-09-18T19:33:22Z
+    revoked: false
+    environments:
+      - paas3-dev
+    remark: ''
