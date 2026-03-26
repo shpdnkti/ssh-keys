@@ -8,3 +8,11 @@ keys:
     environments:
       - paas3-dev
     revoked_at: "2026-01-09T06:58:27Z"
+  - filename: 2026-03-26_41654_rsa.pub
+    comment: jasmineqinping@41654
+    added_at: 2026-03-26T08:58:56Z
+    expires_at: 2026-09-22T08:58:56Z
+    revoked: false
+    environments:
+      - paas3-dev
+    remark: WeCom_SelfService_Apply
