@@ -4,7 +4,8 @@ keys:
     comment: WengChangWei@48380
     added_at: 2026-03-03T06:15:05Z
     expires_at: 2026-04-02T06:15:05Z
-    revoked: false
+    revoked: true
     environments:
       - paas3-dev
     remark: ''
+    revoked_at: "2026-04-02T07:47:42Z"
