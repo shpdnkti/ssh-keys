@@ -53,3 +53,11 @@ keys:
     environments:
       - paas3-dev
     remark: WeCom_SelfService_Apply
+  - filename: 2026-04-07_35323_rsa.pub
+    comment: shpdnkti@35323
+    added_at: 2026-04-07T12:18:00Z
+    expires_at: 2026-10-04T12:18:00Z
+    revoked: false
+    environments:
+      - paas3-dev
+    remark: WeCom_SelfService_Apply
