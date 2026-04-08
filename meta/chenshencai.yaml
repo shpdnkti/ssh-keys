@@ -9,3 +9,11 @@ keys:
       - paas3-dev
     remark: ''
     revoked_at: "2026-04-03T03:35:01Z"
+  - filename: 2026-04-08_18451_rsa.pub
+    comment: chenshencai@18451
+    added_at: 2026-04-08T03:06:41Z
+    expires_at: 2026-10-05T03:06:41Z
+    revoked: false
+    environments:
+      - paas3-dev
+    remark: WeCom_SelfService_Apply
