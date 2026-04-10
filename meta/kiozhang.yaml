@@ -1,0 +1,10 @@
+user: kiozhang
+keys:
+  - filename: 2026-04-10_45072_rsa.pub
+    comment: kiozhang@45072
+    added_at: 2026-04-10T10:19:02Z
+    expires_at: 2026-10-07T10:19:02Z
+    revoked: false
+    environments:
+      - paas3-dev
+    remark: WeCom_SelfService_Apply
