@@ -8,3 +8,11 @@ keys:
     environments:
       - paas3-dev
     remark: WeCom_SelfService_Apply
+  - filename: 2026-04-10_42594_rsa.pub
+    comment: kiozhang@42594
+    added_at: 2026-04-10T10:37:20Z
+    expires_at: 2026-10-07T10:37:20Z
+    revoked: false
+    environments:
+      - paas3-dev
+    remark: WeCom_SelfService_Apply
