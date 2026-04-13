@@ -1,0 +1,10 @@
+user: Rodger-zk
+keys:
+  - filename: 2026-04-13_17112_rsa.pub
+    comment: Rodger-zk@17112
+    added_at: 2026-04-13T12:13:24Z
+    expires_at: 2026-10-13T00:13:24Z
+    revoked: false
+    environments:
+      - paas3-dev
+    remark: ''
