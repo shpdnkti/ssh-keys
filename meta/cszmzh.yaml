@@ -1,0 +1,10 @@
+user: cszmzh
+keys:
+  - filename: 2026-04-14_25012_rsa.pub
+    comment: cszmzh@25012
+    added_at: 2026-04-14T06:37:32Z
+    expires_at: 2026-10-11T06:37:32Z
+    revoked: false
+    environments:
+      - paas3-dev
+    remark: WeCom_SelfService_Apply
