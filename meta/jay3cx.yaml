@@ -24,3 +24,11 @@ keys:
     environments:
       - paas3-dev
     remark: jaysunchen
+  - filename: 2026-04-17_39694_rsa.pub
+    comment: jay3cx@39694
+    added_at: 2026-04-17T03:42:25Z
+    expires_at: 2026-10-16T15:42:25Z
+    revoked: false
+    environments:
+      - paas3-dev
+    remark: jaysunchen
