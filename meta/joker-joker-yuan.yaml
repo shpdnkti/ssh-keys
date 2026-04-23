@@ -12,6 +12,7 @@ keys:
     comment: joker-joker-yuan@paas3-dev
     added_at: "2025-10-23T01:56:09Z"
     expires_at: "2026-04-23T13:56:09Z"
-    revoked: false
+    revoked: true
     environments:
       - paas3-dev
+    revoked_at: "2026-04-23T15:26:04Z"
