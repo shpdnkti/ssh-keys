@@ -1,0 +1,10 @@
+user: mingye0216-prog
+keys:
+  - filename: 2026-04-23_55169_rsa.pub
+    comment: mingye0216-prog@55169
+    added_at: 2026-04-23T04:03:02Z
+    expires_at: 2026-10-20T04:03:02Z
+    revoked: false
+    environments:
+      - paas3-dev
+    remark: WeCom_SelfService_Apply
