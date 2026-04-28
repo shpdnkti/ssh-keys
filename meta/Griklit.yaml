@@ -1,0 +1,10 @@
+user: Griklit
+keys:
+  - filename: 2026-04-28_6934_rsa.pub
+    comment: Griklit@6934
+    added_at: 2026-04-28T09:05:32Z
+    expires_at: 2026-10-25T09:05:32Z
+    revoked: false
+    environments:
+      - paas3-dev
+    remark: WeCom_SelfService_Apply
