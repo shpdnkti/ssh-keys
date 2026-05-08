@@ -16,3 +16,11 @@ keys:
     environments:
       - bk-pmc
     remark: ''
+  - filename: 2026-05-08_41965_rsa.pub
+    comment: Han-Ya-Jun@41965
+    added_at: 2026-05-08T07:51:18Z
+    expires_at: 2026-11-04T07:51:18Z
+    revoked: false
+    environments:
+      - paas3-dev
+    remark: WeCom_SelfService_Apply
