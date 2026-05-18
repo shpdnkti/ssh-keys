@@ -1,0 +1,18 @@
+user: ningmao-hlyz
+keys:
+  - filename: 2026-05-18_22638_rsa.pub
+    comment: ningmao-hlyz@22638
+    added_at: 2026-05-18T02:30:26Z
+    expires_at: 2026-11-14T02:30:26Z
+    revoked: false
+    environments:
+      - paas3-dev
+    remark: WeCom_SelfService_Apply
+  - filename: 2026-05-18_57555_rsa.pub
+    comment: ningmao-hlyz@57555
+    added_at: 2026-05-18T02:30:39Z
+    expires_at: 2026-11-14T02:30:39Z
+    revoked: false
+    environments:
+      - paas3-dev
+    remark: WeCom_SelfService_Apply
