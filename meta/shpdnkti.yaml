@@ -11,9 +11,10 @@ keys:
     comment: shpdnkti@paas3-dev
     added_at: "2025-11-17T03:49:07Z"
     expires_at: "2026-05-18T15:49:07Z"
-    revoked: false
+    revoked: true
     environments:
       - paas3-dev
+    revoked_at: "2026-05-18T16:38:33Z"
   - filename: 2026-01-06_13082_rsa.pub
     comment: shpdnkti@paas3-dev
     added_at: "2026-01-06T11:33:30Z"
