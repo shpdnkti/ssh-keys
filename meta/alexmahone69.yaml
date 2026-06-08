@@ -36,7 +36,8 @@ keys:
     comment: alexmahone69@16308
     added_at: 2026-05-09T08:11:55Z
     expires_at: 2026-06-08T08:11:55Z
-    revoked: false
+    revoked: true
     environments:
       - bk-pmc
     remark: ''
+    revoked_at: "2026-06-08T10:05:39Z"
