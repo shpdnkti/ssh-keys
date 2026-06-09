@@ -1,0 +1,18 @@
+user: fcfang123
+keys:
+  - filename: 2026-06-09_12265_rsa.pub
+    comment: fcfang123@12265
+    added_at: 2026-06-09T03:08:09Z
+    expires_at: 2026-07-09T03:08:09Z
+    revoked: false
+    environments:
+      - bk-ctrl
+    remark: ''
+  - filename: 2026-06-09_9738_rsa.pub
+    comment: fcfang123@9738
+    added_at: 2026-06-09T03:08:18Z
+    expires_at: 2026-07-09T03:08:18Z
+    revoked: false
+    environments:
+      - bk-ctrl
+    remark: ''
