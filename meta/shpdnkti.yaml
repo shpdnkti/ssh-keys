@@ -62,3 +62,11 @@ keys:
     environments:
       - paas3-dev
     remark: WeCom_SelfService_Apply
+  - filename: 2026-06-10_7834_rsa.pub
+    comment: shpdnkti@7834
+    added_at: 2026-06-10T04:04:51Z
+    expires_at: null
+    revoked: false
+    environments:
+      - paas3-dev
+    remark: yassin 长期
