@@ -4,7 +4,8 @@ keys:
     comment: tyrellil@51429
     added_at: 2026-05-13T07:09:42Z
     expires_at: 2026-06-12T07:09:42Z
-    revoked: false
+    revoked: true
     environments:
       - bk-ctrl
     remark: ''
+    revoked_at: "2026-06-12T09:44:20Z"
