@@ -4,6 +4,7 @@ keys:
     comment: wuw-Mercury@paas3-dev
     added_at: "2025-12-18T02:23:55Z"
     expires_at: "2026-06-18T14:23:55Z"
-    revoked: false
+    revoked: true
     environments:
       - paas3-dev
+    revoked_at: "2026-06-18T17:42:48Z"

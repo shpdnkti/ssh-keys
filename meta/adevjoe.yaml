@@ -4,6 +4,7 @@ keys:
     comment: adevjoe@bk-ctrl
     added_at: "2025-12-18T02:20:58Z"
     expires_at: "2026-06-18T14:20:58Z"
-    revoked: false
+    revoked: true
     environments:
       - bk-ctrl
+    revoked_at: "2026-06-18T17:42:48Z"
