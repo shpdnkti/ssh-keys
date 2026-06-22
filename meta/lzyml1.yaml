@@ -4,6 +4,7 @@ keys:
     comment: lzyml1@paas3-dev
     added_at: "2025-12-22T07:05:54Z"
     expires_at: "2026-06-22T19:05:54Z"
-    revoked: false
+    revoked: true
     environments:
       - paas3-dev
+    revoked_at: "2026-06-22T21:38:14Z"
