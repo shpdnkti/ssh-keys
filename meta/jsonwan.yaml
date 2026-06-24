@@ -4,9 +4,10 @@ keys:
     comment: jsonwan@bk-ctrl
     added_at: "2025-12-24T02:45:04Z"
     expires_at: "2026-06-24T14:45:04Z"
-    revoked: false
+    revoked: true
     environments:
       - bk-ctrl
+    revoked_at: "2026-06-24T15:52:20Z"
   - filename: 2026-01-19_4660_rsa.pub
     comment: jsonwan@4660
     added_at: 2026-01-19T08:42:32Z

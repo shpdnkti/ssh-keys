@@ -12,9 +12,10 @@ keys:
     comment: alexmahone69@paas3-dev
     added_at: "2025-12-24T02:22:13Z"
     expires_at: "2026-06-24T14:22:13Z"
-    revoked: false
+    revoked: true
     environments:
       - paas3-dev
+    revoked_at: "2026-06-24T15:52:20Z"
   - filename: 2026-01-09_16065_rsa.pub
     comment: alexmahone69@16065
     added_at: 2026-01-09T08:31:12Z
