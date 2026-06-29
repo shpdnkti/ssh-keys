@@ -8,3 +8,11 @@ keys:
     environments:
       - paas3-dev
     remark: zhenbo
+  - filename: 2026-06-29_25034_rsa.pub
+    comment: 37-pro@25034
+    added_at: 2026-06-29T06:24:23Z
+    expires_at: 2026-12-28T18:24:23Z
+    revoked: false
+    environments:
+      - bk-pmc
+    remark: pmc 眭镇波
