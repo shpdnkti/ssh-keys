@@ -8,3 +8,11 @@ keys:
     environments:
       - paas3-dev
     revoked_at: "2026-06-22T21:38:14Z"
+  - filename: 2026-06-29_18328_rsa.pub
+    comment: lzyml1@18328
+    added_at: 2026-06-29T01:55:46Z
+    expires_at: 2026-12-26T01:55:46Z
+    revoked: false
+    environments:
+      - paas3-dev
+    remark: WeCom_SelfService_Apply
