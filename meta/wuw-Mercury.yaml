@@ -8,3 +8,11 @@ keys:
     environments:
       - paas3-dev
     revoked_at: "2026-06-18T17:42:48Z"
+  - filename: 2026-06-29_28508_rsa.pub
+    comment: wuw-Mercury@28508
+    added_at: 2026-06-29T09:47:42Z
+    expires_at: 2026-12-26T09:47:42Z
+    revoked: false
+    environments:
+      - paas3-dev
+    remark: WeCom_SelfService_Apply
