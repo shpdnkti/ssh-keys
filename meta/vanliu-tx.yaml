@@ -4,9 +4,10 @@ keys:
     comment: vanliu-tx@bk-ctrl
     added_at: "2026-01-06T08:11:28Z"
     expires_at: "2026-07-07T20:11:28Z"
-    revoked: false
+    revoked: true
     environments:
       - bk-ctrl
+    revoked_at: "2026-07-07T20:26:12Z"
   - filename: 2026-01-16_5225_rsa.pub
     comment: vanliu-tx@5225
     added_at: 2026-01-16T04:10:53Z
