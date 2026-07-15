@@ -25,3 +25,11 @@ keys:
     environments:
       - paas3-dev
     remark: ''
+  - filename: 2026-07-15_40343_rsa.pub
+    comment: jiananzhang@40343
+    added_at: 2026-07-15T11:23:17Z
+    expires_at: 2027-01-13T23:23:17Z
+    revoked: false
+    environments:
+      - bk-pmc
+    remark: ''
