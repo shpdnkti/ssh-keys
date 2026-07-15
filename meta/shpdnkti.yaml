@@ -71,3 +71,11 @@ keys:
     environments:
       - paas3-dev
     remark: yassin 长期
+  - filename: 2026-07-15_37136_rsa.pub
+    comment: shpdnkti@37136
+    added_at: 2026-07-15T07:49:43Z
+    expires_at: 2027-01-11T07:49:43Z
+    revoked: false
+    environments:
+      - paas3-dev
+    remark: WeCom_SelfService_Apply
