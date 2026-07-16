@@ -27,10 +27,11 @@ keys:
     comment: shpdnkti@23232
     added_at: 2026-01-15T07:39:13Z
     expires_at: 2026-07-16T19:39:13Z
-    revoked: false
+    revoked: true
     environments:
       - bk-ctrl
     remark: loongjiang
+    revoked_at: "2026-07-16T20:27:37Z"
   - filename: 2026-02-04_25499_rsa.pub
     comment: shpdnkti@25499
     added_at: 2026-02-04T03:05:02Z
