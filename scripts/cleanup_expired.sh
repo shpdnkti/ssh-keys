@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # -------------------------------------------------
-# 自动标记过期密钥为 revoked 并提交 PR
+# 自动清理无公钥文件或已过期的密钥元数据并提交
 # -------------------------------------------------
 
 [[ "$IS_TRACE" == "true" ]] && set -x
@@ -34,7 +34,7 @@ BRANCH=main
 # git checkout -b "$BRANCH"
 
 # ------------------- 主逻辑 -------------------
-declare -a revoked_keys   # 用于 PR body
+declare -a cleaned_keys
 
 META_DIR="$REPO_ROOT/meta"
 
@@ -45,17 +45,21 @@ for meta_file in "$META_DIR"/*.yaml; do
     # 获取密钥数量
     key_count=$($YQ e '.keys | length' "$meta_file")
     
-    # 遍历所有密钥
-    for ((i=0; i<key_count; i++)); do
-      # 检查密钥是否已撤销或没有过期时间
-      revoked=$($YQ e ".keys[$i].revoked" "$meta_file")
-      expires_at=$($YQ e ".keys[$i].expires_at" "$meta_file")
-      
-      # 跳过已撤销或没有过期时间的密钥
-      [[ "$revoked" == "true" || -z "$expires_at" || "$expires_at" == "null" ]] && continue
-      
-      # 获取文件名
+    # 倒序遍历，删除数组元素时不会影响尚未处理的下标
+    for ((i=key_count-1; i>=0; i--)); do
       filename=$($YQ e ".keys[$i].filename" "$meta_file")
+      key_path="$REPO_ROOT/keys/$user/$filename"
+
+      # 元数据引用的公钥不存在时，直接删除该条元数据
+      if [[ ! -f "$key_path" ]]; then
+        $YQ e -i "del(.keys[$i])" "$meta_file"
+        cleaned_keys+=("$user: $filename (missing public key)")
+        continue
+      fi
+
+      # 没有过期时间的密钥不做处理
+      expires_at=$($YQ e ".keys[$i].expires_at" "$meta_file")
+      [[ -z "$expires_at" || "$expires_at" == "null" ]] && continue
       
       # 把 ISO8601 转成 epoch 秒
       expires_epoch=$(date -u -d "$expires_at" +%s 2>/dev/null || echo 0)
@@ -63,27 +67,22 @@ for meta_file in "$META_DIR"/*.yaml; do
       # 如果解析失败（返回 0）直接跳过
       (( expires_epoch == 0 )) && continue
       
-      # 已过期 → 需要撤销
+      # 已过期：删除元数据以及对应公钥文件
       if (( expires_epoch <= NOW_EPOCH )); then
-        # 用 yq 原地修改对应下标的键
-        $YQ e -i "
-          .keys[$i].revoked = true |
-          .keys[$i].revoked_at = \"$NOW_UTC\"
-        " "$meta_file"
-        
-        # 记录到数组，供后面 PR Body 使用
-        revoked_keys+=("$user: $filename")
+        $YQ e -i "del(.keys[$i])" "$meta_file"
+        rm -f -- "$key_path"
+        cleaned_keys+=("$user: $filename (expired)")
       fi
     done
   done
 
 # ------------------- 提交 & PR -------------------
 if git diff --quiet; then
-  echo "✅ 无过期密钥需要撤销"
+  echo "✅ 无缺失公钥或过期元数据需要清理"
   exit 0
 else
-  git add meta/
-  git commit -m "CI: Auto-revoke expired keys \n$(printf -- "- %s\n" "${revoked_keys[@]}")"
+  git add -A -- meta/ keys/
+  git commit -m "CI: Cleanup invalid SSH key metadata \n$(printf -- "- %s\n" "${cleaned_keys[@]}")"
   git push origin "$BRANCH"
 
   # # 生成 PR 描述
