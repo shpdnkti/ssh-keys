@@ -20,6 +20,20 @@ when /\A\.keys\[(\d+)\]\.(filename|expires_at)\z/
   puts value.nil? ? "null" : value
 when /\Adel\(\.keys\[(\d+)\]\)\z/
   Array(data["keys"]).delete_at(Regexp.last_match(1).to_i)
+when /\A\.jobs\.(validate|deploy|cleanup)\.if\z/
+  puts data.fetch("jobs").fetch(Regexp.last_match(1)).fetch("if")
+when /\A\.jobs\.(deploy|cleanup)\.concurrency\.(group|cancel-in-progress)\z/
+  value = data.fetch("jobs").fetch(Regexp.last_match(1)).fetch("concurrency", {})[Regexp.last_match(2)]
+  puts value.nil? ? "null" : value
+when /\A\.jobs\.cleanup\.steps\[\] \| select\(\.(uses|id|name) == "([^"]+)"\) \| \.(with\.ref|if|run)\z/
+  selector_key = Regexp.last_match(1)
+  selector_value = Regexp.last_match(2)
+  result_path = Regexp.last_match(3).split(".")
+  step = data.fetch("jobs").fetch("cleanup").fetch("steps").find do |candidate|
+    candidate[selector_key] == selector_value
+  end
+  value = result_path.reduce(step) { |current, key| current.is_a?(Hash) ? current[key] : nil }
+  puts value.nil? ? "null" : value
 else
   warn "unsupported yq expression: #{expression}"
   exit 2
