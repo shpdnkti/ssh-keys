@@ -1,18 +1,2 @@
 user: XiaohaoOfficial
-keys:
-  - filename: 2025-10-27_51251_rsa.pub
-    comment: XiaohaoOfficial@paas3-dev
-    added_at: "2025-10-27T09:06:47Z"
-    expires_at: "2025-11-26T09:06:47Z"
-    revoked: true
-    revoked_at: "2025-11-26T09:46:34Z"
-    environments:
-      - paas3-dev
-  - filename: 2025-12-26_8681_rsa.pub
-    comment: XiaohaoOfficial@paas3-dev
-    added_at: "2025-12-26T09:45:27Z"
-    expires_at: "2026-01-02T09:45:27Z"
-    revoked: true
-    revoked_at: "2026-01-02T09:47:21Z"
-    environments:
-      - paas3-dev
+keys: []

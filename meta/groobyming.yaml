@@ -1,14 +1,5 @@
 user: groobyming
 keys:
-  - filename: 2026-03-03_41198_rsa.pub
-    comment: groobyming@41198
-    added_at: 2026-03-03T03:44:51Z
-    expires_at: 2026-04-02T03:44:51Z
-    revoked: true
-    environments:
-      - paas3-dev
-    remark: ''
-    revoked_at: "2026-04-02T05:56:21Z"
   - filename: 2026-04-08_1782_rsa.pub
     comment: groobyming@1782
     added_at: 2026-04-08T09:29:10Z

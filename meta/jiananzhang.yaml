@@ -7,16 +7,6 @@ keys:
     revoked: false
     environments:
       - bk-ctrl
-  - filename: 2026-01-08_35697_rsa.pub
-    comment: jiananzhang@35697
-    added_at: 2026-01-08T07:08:33Z
-    expires_at: 2026-07-09T19:08:33Z
-    revoked: true
-    environments:
-      - bk-ctrl
-      - migrate-test
-    remark: ''
-    revoked_at: "2026-07-09T21:04:36Z"
   - filename: 2026-03-17_3007_rsa.pub
     comment: jiananzhang@3007
     added_at: 2026-03-17T08:46:09Z

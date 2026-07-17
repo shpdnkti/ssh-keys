@@ -1,13 +1,5 @@
 user: unique0lai
 keys:
-  - filename: 2025-12-18_14731_rsa.pub
-    comment: unique0lai@bk-ctrl
-    added_at: "2025-12-18T06:53:07Z"
-    expires_at: "2026-01-17T06:53:07Z"
-    revoked: true
-    environments:
-      - bk-ctrl
-    revoked_at: "2026-01-17T06:53:39Z"
   - filename: 2026-02-06_8670_rsa.pub
     comment: unique0lai@8670
     added_at: 2026-02-06T04:20:48Z

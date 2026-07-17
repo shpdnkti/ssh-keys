@@ -1,11 +1,2 @@
 user: royalhuang
-keys:
-  - filename: 2026-04-20_19408_rsa.pub
-    comment: royalhuang@19408
-    added_at: 2026-04-20T06:29:37Z
-    expires_at: 2026-05-20T06:29:37Z
-    revoked: true
-    environments:
-      - bk-ctrl
-    remark: ''
-    revoked_at: "2026-05-20T06:32:21Z"
+keys: []

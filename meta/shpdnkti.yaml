@@ -7,31 +7,6 @@ keys:
     revoked: false
     environments:
       - all
-  - filename: 2025-11-17_12826_rsa.pub
-    comment: shpdnkti@paas3-dev
-    added_at: "2025-11-17T03:49:07Z"
-    expires_at: "2026-05-18T15:49:07Z"
-    revoked: true
-    environments:
-      - paas3-dev
-    revoked_at: "2026-05-18T16:38:33Z"
-  - filename: 2026-01-06_13082_rsa.pub
-    comment: shpdnkti@paas3-dev
-    added_at: "2026-01-06T11:33:30Z"
-    expires_at: "2026-07-07T23:33:30Z"
-    revoked: true
-    environments:
-      - paas3-dev
-    revoked_at: "2026-07-08T03:55:41Z"
-  - filename: 2026-01-15_23232_rsa.pub
-    comment: shpdnkti@23232
-    added_at: 2026-01-15T07:39:13Z
-    expires_at: 2026-07-16T19:39:13Z
-    revoked: true
-    environments:
-      - bk-ctrl
-    remark: loongjiang
-    revoked_at: "2026-07-16T20:27:37Z"
   - filename: 2026-02-04_25499_rsa.pub
     comment: shpdnkti@25499
     added_at: 2026-02-04T03:05:02Z

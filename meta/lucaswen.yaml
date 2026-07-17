@@ -1,21 +1,5 @@
 user: lucaswen
 keys:
-  - filename: 2026-07-16_60109_rsa.pub
-    comment: lucaswen@60109
-    added_at: 2026-07-16T07:51:10Z
-    expires_at: 2027-01-14T19:51:10Z
-    revoked: false
-    environments:
-      - bk-pmc
-    remark: lucaswen
-  - filename: 2026-07-16_2365_rsa.pub
-    comment: lucaswen@2365
-    added_at: 2026-07-16T07:56:26Z
-    expires_at: 2027-01-14T19:56:26Z
-    revoked: false
-    environments:
-      - bk-pmc
-    remark: lucaswen
   - filename: 2026-07-16_40787_rsa.pub
     comment: lucaswen@40787
     added_at: 2026-07-16T07:56:34Z

@@ -1,21 +1,5 @@
 user: wklken
 keys:
-  - filename: 2025-11-26_51448_rsa.pub
-    comment: wklken@paas3-dev
-    added_at: "2025-11-26T01:48:58Z"
-    expires_at: "2025-12-26T01:48:58Z"
-    revoked: true
-    revoked_at: "2025-12-26T02:28:47Z"
-    environments:
-      - paas3-dev
-  - filename: 2026-01-05_33168_rsa.pub
-    comment: wklken@paas3-dev
-    added_at: "2026-01-05T08:47:02Z"
-    expires_at: "2026-02-04T08:47:02Z"
-    revoked: true
-    environments:
-      - paas3-dev
-    revoked_at: "2026-02-04T09:09:10Z"
   - filename: 2026-01-19_10380_rsa.pub
     comment: wklken@10380
     added_at: 2026-01-19T09:02:59Z
