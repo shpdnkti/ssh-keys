@@ -1,0 +1,8 @@
+# Local agent configuration and installed skills
+/.agents/
+/AGENTS.md
+/skills-lock.json
+
+# Matt Pocock skills local artifacts
+/docs/agents/
+/.scratch/
