@@ -8,3 +8,11 @@ keys:
     environments:
       - paas3-dev
     remark: WeCom_SelfService_Apply
+  - filename: 2026-07-17_52090_rsa.pub
+    comment: jorda95225@52090
+    added_at: 2026-07-17T08:13:14Z
+    expires_at: 2027-01-15T20:13:14Z
+    revoked: false
+    environments:
+      - bk-pmc
+    remark: jordanma
