@@ -22,8 +22,9 @@ when /\Adel\(\.keys\[(\d+)\]\)\z/
   Array(data["keys"]).delete_at(Regexp.last_match(1).to_i)
 when /\A\.jobs\.(validate|deploy|cleanup)\.if\z/
   puts data.fetch("jobs").fetch(Regexp.last_match(1)).fetch("if")
-when /\A\.jobs\.(deploy|cleanup)\.concurrency\.(group|cancel-in-progress)\z/
-  value = data.fetch("jobs").fetch(Regexp.last_match(1)).fetch("concurrency", {})[Regexp.last_match(2)]
+when /\A\.jobs\.(deploy|cleanup)\.concurrency\.(group|"cancel-in-progress")\z/
+  key = Regexp.last_match(2).delete('"')
+  value = data.fetch("jobs").fetch(Regexp.last_match(1)).fetch("concurrency", {})[key]
   puts value.nil? ? "null" : value
 when /\A\.jobs\.cleanup\.steps\[\] \| select\(\.(uses|id|name) == "([^"]+)"\) \| \.(with\.ref|if|run)\z/
   selector_key = Regexp.last_match(1)

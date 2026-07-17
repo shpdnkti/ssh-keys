@@ -3,7 +3,13 @@ set -euo pipefail
 
 PROJECT_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 WORKFLOW="$PROJECT_ROOT/.github/workflows/ci.yml"
-YQ="$PROJECT_ROOT/tests/helpers/yq"
+
+# 仓库 yq 面向 GitHub Actions 的 Linux runner；其他平台使用兼容测试替身。
+if "$PROJECT_ROOT/bin/yq" --version >/dev/null 2>&1; then
+  YQ="$PROJECT_ROOT/bin/yq"
+else
+  YQ="$PROJECT_ROOT/tests/helpers/yq"
+fi
 
 fail() {
   echo "❌ $*" >&2
@@ -40,6 +46,11 @@ test_manual_cleanup_does_not_run_regular_validate_or_deploy() {
     "github.event_name == 'push' && github.ref == 'refs/heads/main'" \
     "$(workflow_value '.jobs.deploy.if')" \
     "deploy 事件条件不正确"
+
+  assert_equal \
+    '${{ github.event_name == '\''schedule'\'' || github.event_name == '\''workflow_dispatch'\'' }}' \
+    "$(workflow_value '.jobs.cleanup.if')" \
+    "cleanup 事件条件不正确"
 }
 
 test_cleanup_validates_and_deploys_only_after_a_change() {
@@ -52,6 +63,7 @@ test_cleanup_validates_and_deploys_only_after_a_change() {
     "cleanup 必须 checkout main"
 
   assert_contains 'before="$(git rev-parse HEAD)"' "$cleanup_run" "cleanup 缺少变更前提交记录"
+  assert_contains 'set -euo pipefail' "$cleanup_run" "cleanup 内联脚本未启用 strict mode"
   assert_contains 'bash scripts/cleanup_expired.sh' "$cleanup_run" "cleanup 未运行清理脚本"
   assert_contains 'if [[ "$(git rev-parse HEAD)" != "$before" ]]; then' "$cleanup_run" "cleanup 未比较前后提交"
   assert_contains 'echo "changed=true" >> "$GITHUB_OUTPUT"' "$cleanup_run" "cleanup 未输出变更状态"
@@ -80,12 +92,12 @@ test_main_writers_are_serialized() {
 
   assert_equal \
     "false" \
-    "$(workflow_value '.jobs.deploy.concurrency.cancel-in-progress')" \
+    "$(workflow_value '.jobs.deploy.concurrency."cancel-in-progress"')" \
     "deploy 不应取消正在进行的写入"
 
   assert_equal \
     "false" \
-    "$(workflow_value '.jobs.cleanup.concurrency.cancel-in-progress')" \
+    "$(workflow_value '.jobs.cleanup.concurrency."cancel-in-progress"')" \
     "cleanup 不应取消正在进行的写入"
 }
 

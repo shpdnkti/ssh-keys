@@ -74,6 +74,7 @@ jobs:
       - name: Cleanup expired keys
         id: cleanup
         run: |
+          set -euo pipefail
           before="$(git rev-parse HEAD)"
           bash scripts/cleanup_expired.sh
           if [[ "$(git rev-parse HEAD)" != "$before" ]]; then
