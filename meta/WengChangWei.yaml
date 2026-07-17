@@ -8,14 +8,6 @@ keys:
     environments:
       - paas3-dev
     remark: WeCom_SelfService_Apply
-  - filename: 2026-07-17_53631_rsa.pub
-    comment: WengChangWei@53631
-    added_at: 2026-07-17T08:30:00Z
-    expires_at: 2027-01-15T20:30:00Z
-    revoked: false
-    environments:
-      - bk-pmc
-    remark: v_cwweng
   - filename: 2026-07-17_53938_rsa.pub
     comment: WengChangWei@53938
     added_at: 2026-07-17T08:30:07Z
