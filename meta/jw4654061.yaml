@@ -16,3 +16,11 @@ keys:
     environments:
       - paas3-dev
     remark: WeCom_SelfService_Apply
+  - filename: 2026-07-17_14758_rsa.pub
+    comment: jw4654061@14758
+    added_at: 2026-07-17T08:50:29Z
+    expires_at: 2027-01-15T20:50:29Z
+    revoked: false
+    environments:
+      - bk-pmc
+    remark: v_pyjnpeng
