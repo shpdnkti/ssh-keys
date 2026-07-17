@@ -24,3 +24,11 @@ keys:
     environments:
       - bk-pmc
     remark: v_pyjnpeng
+  - filename: 2026-07-17_49929_rsa.pub
+    comment: jw4654061@49929
+    added_at: 2026-07-17T08:56:28Z
+    expires_at: 2027-01-15T20:56:28Z
+    revoked: false
+    environments:
+      - bk-pmc
+    remark: v_pyjnpeng
