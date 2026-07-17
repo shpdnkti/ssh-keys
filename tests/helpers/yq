@@ -13,15 +13,13 @@ when ".user"
   puts data["user"]
 when ".keys | length"
   puts Array(data["keys"]).length
-when /\A\.keys\[(\d+)\]\.(filename|revoked|expires_at)\z/
+when ".keys[].filename"
+  puts Array(data["keys"]).map { |key| key["filename"] }
+when /\A\.keys\[(\d+)\]\.(filename|expires_at)\z/
   value = Array(data["keys"])[Regexp.last_match(1).to_i][Regexp.last_match(2)]
   puts value.nil? ? "null" : value
 when /\Adel\(\.keys\[(\d+)\]\)\z/
   Array(data["keys"]).delete_at(Regexp.last_match(1).to_i)
-when /\.keys\[(\d+)\]\.revoked = true.*\.keys\[\1\]\.revoked_at = "([^"]+)"/m
-  key = Array(data["keys"])[Regexp.last_match(1).to_i]
-  key["revoked"] = true
-  key["revoked_at"] = Regexp.last_match(2)
 else
   warn "unsupported yq expression: #{expression}"
   exit 2

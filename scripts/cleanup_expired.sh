@@ -8,7 +8,6 @@ set -euo pipefail
 
 # ------------------- 环境变量 -------------------
 REPO_ROOT="$(git rev-parse --show-toplevel)"
-ISO8601='%Y-%m-%dT%H:%M:%SZ'
 
 # 优先使用工程 bin 目录下的 yq
 if [[ -x "${REPO_ROOT}/bin/yq" ]]; then
@@ -17,16 +16,12 @@ else
   YQ="yq"
 fi
 
-# 当前 UTC 时间（ISO8601）以及 epoch 秒数，后者用于比较
-NOW_UTC=$(date -u +"$ISO8601")
+# 当前 UTC epoch 秒数，用于比较过期时间
 NOW_EPOCH=$(date -u +%s)
 
 # GitHub Actions 必须的用户信息
 git config user.email "actions@github.com"
 git config user.name "GitHub Actions"
-
-# ------------------- 辅助函数 -------------------
-list_environments() { $YQ e '.environments[]' "$REPO_ROOT/envs.yaml"; }
 
 # ------------------- 创建分支 -------------------
 BRANCH=main
@@ -76,7 +71,7 @@ for meta_file in "$META_DIR"/*.yaml; do
     done
   done
 
-# ------------------- 提交 & PR -------------------
+# ------------------- 提交 -------------------
 if git diff --quiet; then
   echo "✅ 无缺失公钥或过期元数据需要清理"
   exit 0

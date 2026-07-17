@@ -25,20 +25,20 @@ setup_fixture() {
   cp "$PROJECT_ROOT/tests/helpers/date" "$REPO/bin/date"
   chmod +x "$REPO/bin/yq" "$REPO/bin/date"
 
-  printf 'placeholder\n' > "$REPO/keys/alice/live.pub"
+  printf 'placeholder\n' > "$REPO/keys/alice/2099-01-01_200_rsa.pub"
 
   cat > "$REPO/meta/alice.yaml" <<'YAML'
 user: alice
 keys:
-  - filename: missing.pub
-    comment: alice@missing
+  - filename: 2099-01-01_100_rsa.pub
+    comment: alice@test
     added_at: "2026-01-01T00:00:00Z"
     expires_at: "2099-01-01T00:00:00Z"
     revoked: false
     environments:
       - test
-  - filename: live.pub
-    comment: alice@live
+  - filename: 2099-01-01_200_rsa.pub
+    comment: alice@test
     added_at: "2026-01-01T00:00:00Z"
     expires_at: "2099-01-01T00:00:00Z"
     revoked: false
@@ -54,7 +54,7 @@ YAML
 assert_metadata_filenames() {
   local expected="$1"
   local actual
-  actual="$(ruby -ryaml -e 'puts YAML.load_file(ARGV[0]).fetch("keys").map { |key| key.fetch("filename") }.join(",")' "$REPO/meta/alice.yaml")"
+  actual="$("$REPO/bin/yq" e '.keys[].filename' "$REPO/meta/alice.yaml" | paste -sd, -)"
   [[ "$actual" == "$expected" ]] ||
     fail "元数据文件名不匹配：期望 '$expected'，实际 '$actual'"
 }
@@ -65,8 +65,8 @@ test_removes_metadata_when_public_key_is_missing() {
 
   (cd "$REPO" && PATH="$REPO/bin:$PATH" bash scripts/cleanup_expired.sh)
 
-  assert_metadata_filenames "live.pub"
-  [[ -f "$REPO/keys/alice/live.pub" ]] || fail "有效公钥不应被删除"
+  assert_metadata_filenames "2099-01-01_200_rsa.pub"
+  [[ -f "$REPO/keys/alice/2099-01-01_200_rsa.pub" ]] || fail "有效公钥不应被删除"
   [[ -z "$(git -C "$REPO" status --porcelain)" ]] || fail "清理提交后工作区应保持干净"
 }
 
@@ -74,28 +74,28 @@ test_removes_expired_metadata_and_public_keys() {
   setup_fixture
   trap 'rm -rf "$FIXTURE_ROOT"' RETURN
 
-  printf 'placeholder\n' > "$REPO/keys/alice/expired.pub"
-  printf 'placeholder\n' > "$REPO/keys/alice/revoked-expired.pub"
+  printf 'placeholder\n' > "$REPO/keys/alice/2020-01-01_300_rsa.pub"
+  printf 'placeholder\n' > "$REPO/keys/alice/2020-01-01_400_rsa.pub"
 
   cat > "$REPO/meta/alice.yaml" <<'YAML'
 user: alice
 keys:
-  - filename: expired.pub
-    comment: alice@expired
+  - filename: 2020-01-01_300_rsa.pub
+    comment: alice@test
     added_at: "2019-01-01T00:00:00Z"
     expires_at: "2020-01-01T00:00:00Z"
     revoked: false
     environments:
       - test
-  - filename: revoked-expired.pub
-    comment: alice@revoked-expired
+  - filename: 2020-01-01_400_rsa.pub
+    comment: alice@test
     added_at: "2019-01-01T00:00:00Z"
     expires_at: "2020-01-01T00:00:00Z"
     revoked: true
     environments:
       - test
-  - filename: live.pub
-    comment: alice@live
+  - filename: 2099-01-01_200_rsa.pub
+    comment: alice@test
     added_at: "2026-01-01T00:00:00Z"
     expires_at: "2099-01-01T00:00:00Z"
     revoked: false
@@ -109,10 +109,10 @@ YAML
 
   (cd "$REPO" && PATH="$REPO/bin:$PATH" bash scripts/cleanup_expired.sh)
 
-  assert_metadata_filenames "live.pub"
-  [[ ! -e "$REPO/keys/alice/expired.pub" ]] || fail "已过期公钥应被删除"
-  [[ ! -e "$REPO/keys/alice/revoked-expired.pub" ]] || fail "已撤销且过期的公钥应被删除"
-  [[ -f "$REPO/keys/alice/live.pub" ]] || fail "未过期公钥不应被删除"
+  assert_metadata_filenames "2099-01-01_200_rsa.pub"
+  [[ ! -e "$REPO/keys/alice/2020-01-01_300_rsa.pub" ]] || fail "已过期公钥应被删除"
+  [[ ! -e "$REPO/keys/alice/2020-01-01_400_rsa.pub" ]] || fail "已撤销且过期的公钥应被删除"
+  [[ -f "$REPO/keys/alice/2099-01-01_200_rsa.pub" ]] || fail "未过期公钥不应被删除"
   [[ -z "$(git -C "$REPO" status --porcelain)" ]] || fail "清理提交后工作区应保持干净"
 }
 

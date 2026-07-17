@@ -1,9 +1,7 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-if [[ "$*" == "-u +%Y-%m-%dT%H:%M:%SZ" ]]; then
-  echo "2026-07-17T00:00:00Z"
-elif [[ "$*" == "-u +%s" ]]; then
+if [[ "$*" == "-u +%s" ]]; then
   echo "2000000000"
 elif [[ "$1" == "-u" && "$2" == "-d" && "$4" == "+%s" ]]; then
   case "$3" in

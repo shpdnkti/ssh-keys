@@ -29,7 +29,7 @@ Authorized keys format: `ssh-rsa AAAAB3... user:filename`
 - **Adding keys**: Place `.pub` file in `keys/{user}/`, create/update `meta/{user}.yaml` with environments list
 - **Validation**: Run `scripts/validate_keys.sh` - checks OpenSSH format, metadata completeness, no orphan keys
 - **Deployment**: Run `scripts/deploy_keys.sh` - generates `authorized_keys/{env}` from active keys of users allowed in that env
-- **Cleanup**: Run `scripts/cleanup_expired.sh` - marks expired keys as `revoked: true` and commits
+- **Cleanup**: Run `scripts/cleanup_expired.sh` - removes metadata without a public key and deletes expired metadata with its public key
 
 ## Conventions
 - Use `yq` for YAML processing (installed in `bin/`)
