@@ -1,10 +1,2 @@
 user: wuyzh39
-keys:
-  - filename: 2026-01-19_48801_rsa.pub
-    comment: wuyzh39@48801
-    added_at: 2026-01-19T09:06:52Z
-    expires_at: 2026-07-20T21:06:52Z
-    revoked: false
-    environments:
-      - bk-pmc
-    remark: ''
+keys: []
