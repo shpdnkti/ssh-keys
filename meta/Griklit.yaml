@@ -8,3 +8,19 @@ keys:
     environments:
       - paas3-dev
     remark: WeCom_SelfService_Apply
+  - filename: 2026-07-23_11138_rsa.pub
+    comment: Griklit@11138
+    added_at: 2026-07-23T08:57:22Z
+    expires_at: 2027-01-21T20:57:22Z
+    revoked: false
+    environments:
+      - bk-pmc
+    remark: v_gwqiiguo
+  - filename: 2026-07-23_49681_rsa.pub
+    comment: Griklit@49681
+    added_at: 2026-07-23T08:57:31Z
+    expires_at: 2027-01-21T20:57:31Z
+    revoked: false
+    environments:
+      - bk-pmc
+    remark: v_gwqiiguo
