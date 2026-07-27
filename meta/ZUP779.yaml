@@ -1,0 +1,10 @@
+user: ZUP779
+keys:
+  - filename: 2026-07-27_35772_rsa.pub
+    comment: ZUP779@35772
+    added_at: 2026-07-27T09:38:03Z
+    expires_at: 2027-01-23T09:38:03Z
+    revoked: false
+    environments:
+      - paas3-dev
+    remark: WeCom_SelfService_Apply
