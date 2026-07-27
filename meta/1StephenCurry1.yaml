@@ -1,13 +1,5 @@
 user: 1StephenCurry1
 keys:
-  - filename: 2026-01-26_15915_rsa.pub
-    comment: 1StephenCurry1@15915
-    added_at: 2026-01-26T09:26:56Z
-    expires_at: 2026-07-27T21:26:56Z
-    revoked: true
-    environments:
-      - paas3-dev
-    remark: ''
   - filename: 2026-04-09_61643_rsa.pub
     comment: 1StephenCurry1@61643
     added_at: 2026-04-09T06:56:44Z
