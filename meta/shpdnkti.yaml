@@ -7,14 +7,6 @@ keys:
     revoked: false
     environments:
       - all
-  - filename: 2026-02-04_25499_rsa.pub
-    comment: shpdnkti@25499
-    added_at: 2026-02-04T03:05:02Z
-    expires_at: 2026-08-05T15:05:02Z
-    revoked: false
-    environments:
-      - paas3-dev
-    remark: zhenlinwen
   - filename: 2026-03-02_39430_rsa.pub
     comment: shpdnkti@39430
     added_at: 2026-03-02T06:36:54Z
