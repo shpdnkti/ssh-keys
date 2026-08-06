@@ -63,3 +63,11 @@ keys:
     environments:
       - bk-pmc
     remark: add 4 yassinqiu
+  - filename: 2026-08-06_37211_rsa.pub
+    comment: shpdnkti@37211
+    added_at: 2026-08-06T03:13:56Z
+    expires_at: null
+    revoked: false
+    environments:
+      - bk-pmc
+    remark: ''
