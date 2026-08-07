@@ -1,13 +1,5 @@
 user: unique0lai
 keys:
-  - filename: 2026-02-06_8670_rsa.pub
-    comment: unique0lai@8670
-    added_at: 2026-02-06T04:20:48Z
-    expires_at: 2026-08-07T16:20:48Z
-    revoked: false
-    environments:
-      - bk-ctrl
-    remark: ''
   - filename: 2026-04-22_19812_rsa.pub
     comment: unique0lai@19812
     added_at: 2026-04-22T07:50:42Z
