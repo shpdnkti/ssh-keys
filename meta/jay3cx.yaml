@@ -1,13 +1,5 @@
 user: jay3cx
 keys:
-  - filename: 2026-02-06_30226_rsa.pub
-    comment: jay3cx@30226
-    added_at: 2026-02-06T09:11:01Z
-    expires_at: 2026-08-07T21:11:01Z
-    revoked: false
-    environments:
-      - paas3-dev
-    remark: jaysunchen
   - filename: 2026-02-09_56450_rsa.pub
     comment: jay3cx@56450
     added_at: 2026-02-09T06:37:56Z
