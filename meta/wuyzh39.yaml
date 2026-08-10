@@ -1,2 +1,10 @@
 user: wuyzh39
-keys: []
+keys:
+  - filename: 2026-08-10_49988_rsa.pub
+    comment: wuyzh39@49988
+    added_at: 2026-08-10T03:36:01Z
+    expires_at: 2027-02-06T03:36:01Z
+    revoked: false
+    environments:
+      - bk-pmc
+    remark: WeCom_SelfService_Apply
