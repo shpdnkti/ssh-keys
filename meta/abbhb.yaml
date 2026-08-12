@@ -1,10 +1,2 @@
 user: abbhb
-keys:
-  - filename: 2026-02-11_61576_rsa.pub
-    comment: abbhb@61576
-    added_at: 2026-02-11T01:11:36Z
-    expires_at: 2026-08-12T13:11:36Z
-    revoked: false
-    environments:
-      - paas3-dev
-    remark: 邱成
+keys: []
