@@ -8,11 +8,3 @@ keys:
     environments:
       - paas3-dev
     remark: ''
-  - filename: 2026-07-15_58710_rsa.pub
-    comment: vanliu-tx@58710
-    added_at: 2026-07-15T07:48:12Z
-    expires_at: 2026-08-14T07:48:12Z
-    revoked: false
-    environments:
-      - bk-pmc
-    remark: ''
