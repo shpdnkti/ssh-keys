@@ -1,2 +1,10 @@
 user: wklken
-keys: []
+keys:
+  - filename: 2026-08-17_51065_rsa.pub
+    comment: wklken@51065
+    added_at: 2026-08-17T07:24:46Z
+    expires_at: 2027-02-15T19:24:46Z
+    revoked: false
+    environments:
+      - paas3-dev
+    remark: ''
