@@ -16,3 +16,11 @@ keys:
     environments:
       - bk-pmc
     remark: ''
+  - filename: 2026-08-18_6688_rsa.pub
+    comment: riley9527@6688
+    added_at: 2026-08-18T09:47:53Z
+    expires_at: 2027-02-14T09:47:53Z
+    revoked: false
+    environments:
+      - bk-pmc
+    remark: WeCom_SelfService_Apply
