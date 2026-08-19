@@ -1,0 +1,10 @@
+user: vanliu
+keys:
+  - filename: 2026-08-19_1800_rsa.pub
+    comment: vanliu@1800
+    added_at: 2026-08-19T06:31:28Z
+    expires_at: 2027-02-15T06:31:28Z
+    revoked: false
+    environments:
+      - bk-pmc
+    remark: WeCom_SelfService_Apply
