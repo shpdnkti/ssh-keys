@@ -1,2 +1,10 @@
 user: abbhb
-keys: []
+keys:
+  - filename: 2026-08-20_39355_rsa.pub
+    comment: abbhb@39355
+    added_at: 2026-08-20T12:39:27Z
+    expires_at: 2027-02-16T12:39:27Z
+    revoked: false
+    environments:
+      - paas3-dev
+    remark: WeCom_SelfService_Apply
