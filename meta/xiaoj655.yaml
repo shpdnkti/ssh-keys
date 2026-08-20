@@ -1,13 +1,5 @@
 user: xiaoj655
 keys:
-  - filename: 2026-07-21_48851_rsa.pub
-    comment: xiaoj655@48851
-    added_at: 2026-07-21T08:10:20Z
-    expires_at: 2026-08-20T08:10:20Z
-    revoked: false
-    environments:
-      - bk-ctrl
-    remark: ''
   - filename: 2026-08-10_36213_rsa.pub
     comment: xiaoj655@36213
     added_at: 2026-08-10T08:02:34Z
