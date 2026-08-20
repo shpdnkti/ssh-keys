@@ -1,0 +1,10 @@
+user: cainsgl
+keys:
+  - filename: 2026-08-20_6579_rsa.pub
+    comment: cainsgl@6579
+    added_at: 2026-08-20T03:50:29Z
+    expires_at: 2027-02-16T03:50:29Z
+    revoked: false
+    environments:
+      - bk-pmc
+    remark: WeCom_SelfService_Apply
