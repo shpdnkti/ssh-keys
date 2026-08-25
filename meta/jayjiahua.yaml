@@ -15,3 +15,11 @@ keys:
     environments:
       - paas3-dev
     remark: ''
+  - filename: 2026-08-25_22990_rsa.pub
+    comment: jayjiahua@22990
+    added_at: 2026-08-25T12:01:56Z
+    expires_at: 2027-02-21T12:01:56Z
+    revoked: false
+    environments:
+      - paas3-dev
+    remark: WeCom_SelfService_Apply
