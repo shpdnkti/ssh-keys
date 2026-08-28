@@ -1,0 +1,10 @@
+user: Xuan88888
+keys:
+  - filename: 2026-08-28_15895_rsa.pub
+    comment: Xuan88888@15895
+    added_at: 2026-08-28T09:41:10Z
+    expires_at: 2027-02-24T09:41:10Z
+    revoked: false
+    environments:
+      - paas3-dev
+    remark: WeCom_SelfService_Apply
