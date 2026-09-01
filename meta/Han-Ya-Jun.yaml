@@ -1,13 +1,5 @@
 user: Han-Ya-Jun
 keys:
-  - filename: 2026-03-03_20789_rsa.pub
-    comment: Han-Ya-Jun@20789
-    added_at: 2026-03-03T08:34:27Z
-    expires_at: 2026-09-01T20:34:27Z
-    revoked: false
-    environments:
-      - paas3-dev
-    remark: ''
   - filename: 2026-03-30_23895_rsa.pub
     comment: Han-Ya-Jun@23895
     added_at: 2026-03-30T08:50:00Z

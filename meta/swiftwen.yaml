@@ -1,10 +1,2 @@
 user: swiftwen
-keys:
-  - filename: 2026-03-03_10620_rsa.pub
-    comment: swiftwen@10620
-    added_at: 2026-03-03T08:46:54Z
-    expires_at: 2026-09-01T20:46:54Z
-    revoked: false
-    environments:
-      - paas3-dev
-    remark: lucaswen
+keys: []
