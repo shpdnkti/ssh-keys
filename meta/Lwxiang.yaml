@@ -9,3 +9,11 @@ keys:
       - bk-pmc
       - bk-ctrl
     remark: ''
+  - filename: 2026-09-02_54651_rsa.pub
+    comment: Lwxiang@54651
+    added_at: 2026-09-02T08:56:43Z
+    expires_at: 2026-10-02T08:56:43Z
+    revoked: false
+    environments:
+      - paas3-dev
+    remark: ''
