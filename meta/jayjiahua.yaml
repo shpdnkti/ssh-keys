@@ -7,14 +7,6 @@ keys:
     revoked: false
     environments:
       - bk-ctrl
-  - filename: 2026-03-04_52624_rsa.pub
-    comment: jayjiahua@52624
-    added_at: 2026-03-04T09:40:02Z
-    expires_at: 2026-09-02T21:40:02Z
-    revoked: false
-    environments:
-      - paas3-dev
-    remark: ''
   - filename: 2026-08-25_22990_rsa.pub
     comment: jayjiahua@22990
     added_at: 2026-08-25T12:01:56Z
