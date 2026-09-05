@@ -1,10 +1,2 @@
 user: yangping
-keys:
-  - filename: 2026-03-09_5037_rsa.pub
-    comment: yangping@5037
-    added_at: 2026-03-09T10:16:16Z
-    expires_at: 2026-09-05T10:16:16Z
-    revoked: false
-    environments:
-      - paas3-dev
-    remark: WeCom_SelfService_Apply
+keys: []
