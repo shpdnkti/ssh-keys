@@ -24,3 +24,11 @@ keys:
     environments:
       - bk-pmc
     remark: v_pyjnpeng
+  - filename: 2026-09-09_49333_rsa.pub
+    comment: jw4654061@49333
+    added_at: 2026-09-09T01:28:28Z
+    expires_at: 2027-03-08T01:28:28Z
+    revoked: false
+    environments:
+      - paas3-dev
+    remark: WeCom_SelfService_Apply
