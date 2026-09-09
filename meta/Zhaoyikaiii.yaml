@@ -1,10 +1,2 @@
 user: Zhaoyikaiii
-keys:
-  - filename: 2026-09-09_10660_rsa.pub
-    comment: Zhaoyikaiii@10660
-    added_at: 2026-09-09T01:47:50Z
-    expires_at: 2026-09-09T02:47:50Z
-    revoked: false
-    environments:
-      - paas3-dev
-    remark: ''
+keys: []
