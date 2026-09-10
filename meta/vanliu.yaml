@@ -8,3 +8,11 @@ keys:
     environments:
       - bk-pmc
     remark: WeCom_SelfService_Apply
+  - filename: 2026-09-10_45089_rsa.pub
+    comment: vanliu@45089
+    added_at: 2026-09-10T02:57:55Z
+    expires_at: 2027-03-09T02:57:55Z
+    revoked: false
+    environments:
+      - paas3-dev
+    remark: WeCom_SelfService_Apply
