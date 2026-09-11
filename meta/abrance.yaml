@@ -1,2 +1,10 @@
 user: abrance
-keys: []
+keys:
+  - filename: 2026-09-11_42209_rsa.pub
+    comment: abrance@42209
+    added_at: 2026-09-11T09:33:29Z
+    expires_at: 2027-03-10T09:33:29Z
+    revoked: false
+    environments:
+      - paas3-dev
+    remark: WeCom_SelfService_Apply
