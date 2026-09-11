@@ -1,0 +1,10 @@
+user: Vingdy
+keys:
+  - filename: 2026-09-11_45181_rsa.pub
+    comment: Vingdy@45181
+    added_at: 2026-09-11T03:40:45Z
+    expires_at: 2027-03-12T15:40:45Z
+    revoked: false
+    environments:
+      - bk-pmc
+    remark: ''
