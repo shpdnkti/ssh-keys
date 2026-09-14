@@ -9,6 +9,8 @@ on:
     paths:
       - 'keys/**'
       - 'meta/**'
+      - '.github/workflows/ci.yml'
+      - 'scripts/**'
   pull_request:
     types: [opened, synchronize, reopened]
   schedule:
@@ -17,7 +19,7 @@ on:
 
 jobs:
   validate:
-    if: github.event_name == 'push' || github.event_name == 'pull_request'
+    if: github.event_name == 'pull_request' || (github.event_name == 'push' && github.ref != 'refs/heads/main')
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -47,23 +49,9 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-  deploy:
-    runs-on: ubuntu-latest
-    needs: validate
-    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
-    concurrency:
-      group: ssh-keys-main-writer
-      cancel-in-progress: false
-    steps:
-      - uses: actions/checkout@v4
-      - name: Deploy keys
-        run: bash scripts/deploy_keys.sh
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
   cleanup:
     runs-on: ubuntu-latest
-    if: ${{ github.event_name == 'schedule' || github.event_name == 'workflow_dispatch' }}
+    if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch' || (github.event_name == 'push' && github.ref == 'refs/heads/main')
     concurrency:
       group: ssh-keys-main-writer
       cancel-in-progress: false
@@ -83,10 +71,10 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Validate cleaned repository
-        if: steps.cleanup.outputs.changed == 'true'
+        if: github.event_name == 'push' || steps.cleanup.outputs.changed == 'true'
         run: bash scripts/validate_keys.sh
       - name: Regenerate authorized_keys
-        if: steps.cleanup.outputs.changed == 'true'
+        if: github.event_name == 'push' || steps.cleanup.outputs.changed == 'true'
         run: bash scripts/deploy_keys.sh
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

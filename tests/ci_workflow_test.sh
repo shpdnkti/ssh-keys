@@ -36,24 +36,19 @@ workflow_value() {
   "$YQ" e "$1" "$WORKFLOW"
 }
 
-test_manual_cleanup_does_not_run_regular_validate_or_deploy() {
+test_main_push_uses_cleanup_and_other_branches_validate() {
   assert_equal \
-    "github.event_name == 'push' || github.event_name == 'pull_request'" \
+    "github.event_name == 'pull_request' || (github.event_name == 'push' && github.ref != 'refs/heads/main')" \
     "$(workflow_value '.jobs.validate.if')" \
     "validate 事件条件不正确"
 
   assert_equal \
-    "github.event_name == 'push' && github.ref == 'refs/heads/main'" \
-    "$(workflow_value '.jobs.deploy.if')" \
-    "deploy 事件条件不正确"
-
-  assert_equal \
-    '${{ github.event_name == '\''schedule'\'' || github.event_name == '\''workflow_dispatch'\'' }}' \
+    "github.event_name == 'schedule' || github.event_name == 'workflow_dispatch' || (github.event_name == 'push' && github.ref == 'refs/heads/main')" \
     "$(workflow_value '.jobs.cleanup.if')" \
     "cleanup 事件条件不正确"
 }
 
-test_cleanup_validates_and_deploys_only_after_a_change() {
+test_push_always_validates_and_deploys_after_cleanup() {
   local cleanup_run
   cleanup_run="$(workflow_value '.jobs.cleanup.steps[] | select(.id == "cleanup") | .run')"
 
@@ -69,12 +64,12 @@ test_cleanup_validates_and_deploys_only_after_a_change() {
   assert_contains 'echo "changed=true" >> "$GITHUB_OUTPUT"' "$cleanup_run" "cleanup 未输出变更状态"
 
   assert_equal \
-    "steps.cleanup.outputs.changed == 'true'" \
+    "github.event_name == 'push' || steps.cleanup.outputs.changed == 'true'" \
     "$(workflow_value '.jobs.cleanup.steps[] | select(.name == "Validate cleaned repository") | .if')" \
     "清理后校验条件不正确"
 
   assert_equal \
-    "steps.cleanup.outputs.changed == 'true'" \
+    "github.event_name == 'push' || steps.cleanup.outputs.changed == 'true'" \
     "$(workflow_value '.jobs.cleanup.steps[] | select(.name == "Regenerate authorized_keys") | .if')" \
     "清理后部署条件不正确"
 }
@@ -82,18 +77,8 @@ test_cleanup_validates_and_deploys_only_after_a_change() {
 test_main_writers_are_serialized() {
   assert_equal \
     "ssh-keys-main-writer" \
-    "$(workflow_value '.jobs.deploy.concurrency.group')" \
-    "deploy 写入锁不正确"
-
-  assert_equal \
-    "ssh-keys-main-writer" \
     "$(workflow_value '.jobs.cleanup.concurrency.group')" \
     "cleanup 写入锁不正确"
-
-  assert_equal \
-    "false" \
-    "$(workflow_value '.jobs.deploy.concurrency."cancel-in-progress"')" \
-    "deploy 不应取消正在进行的写入"
 
   assert_equal \
     "false" \
@@ -101,7 +86,7 @@ test_main_writers_are_serialized() {
     "cleanup 不应取消正在进行的写入"
 }
 
-test_manual_cleanup_does_not_run_regular_validate_or_deploy
-test_cleanup_validates_and_deploys_only_after_a_change
+test_main_push_uses_cleanup_and_other_branches_validate
+test_push_always_validates_and_deploys_after_cleanup
 test_main_writers_are_serialized
 echo "✅ ci workflow tests passed"
