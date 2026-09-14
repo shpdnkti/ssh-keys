@@ -1,26 +1,2 @@
 user: Zhaoyikaiii
-keys:
-  - filename: 2026-09-14_27763_rsa.pub
-    comment: Zhaoyikaiii@27763
-    added_at: 2026-09-14T08:23:13Z
-    expires_at: 2026-09-14T09:23:13Z
-    revoked: false
-    environments:
-      - paas3-dev
-    remark: ''
-  - filename: 2026-09-14_48153_rsa.pub
-    comment: Zhaoyikaiii@48153
-    added_at: 2026-09-14T08:23:19Z
-    expires_at: 2026-09-14T09:23:19Z
-    revoked: false
-    environments:
-      - paas3-dev
-    remark: ''
-  - filename: 2026-09-14_19683_rsa.pub
-    comment: Zhaoyikaiii@19683
-    added_at: 2026-09-14T08:23:24Z
-    expires_at: 2026-09-14T09:23:24Z
-    revoked: false
-    environments:
-      - paas3-dev
-    remark: ''
+keys: []
