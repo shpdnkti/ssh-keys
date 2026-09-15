@@ -8,3 +8,11 @@ keys:
     environments:
       - paas3-dev
     remark: ''
+  - filename: 2026-09-15_49467_rsa.pub
+    comment: dengyh@49467
+    added_at: 2026-09-15T02:32:43Z
+    expires_at: 2027-03-16T14:32:43Z
+    revoked: false
+    environments:
+      - paas3-dev
+    remark: ''
