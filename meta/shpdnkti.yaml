@@ -67,3 +67,11 @@ keys:
       - bk-pmc
       - migrate-test
     remark: v_gwhggong
+  - filename: 2026-09-22_41899_rsa.pub
+    comment: shpdnkti@41899
+    added_at: 2026-09-22T03:23:00Z
+    expires_at: 2027-03-23T15:23:00Z
+    revoked: false
+    environments:
+      - paas3-dev
+    remark: ''
