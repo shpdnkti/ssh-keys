@@ -8,3 +8,11 @@ keys:
     environments:
       - bk-pmc
     remark: Job开发机82
+  - filename: 2026-09-23_55638_rsa.pub
+    comment: jsonwan@55638
+    added_at: 2026-09-23T12:58:44Z
+    expires_at: 2027-03-25T00:58:44Z
+    revoked: false
+    environments:
+      - bk-pmc
+    remark: ''
