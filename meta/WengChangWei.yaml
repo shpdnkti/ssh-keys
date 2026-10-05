@@ -1,13 +1,5 @@
 user: WengChangWei
 keys:
-  - filename: 2026-04-08_53345_rsa.pub
-    comment: WengChangWei@53345
-    added_at: 2026-04-08T03:40:17Z
-    expires_at: 2026-10-05T03:40:17Z
-    revoked: false
-    environments:
-      - paas3-dev
-    remark: WeCom_SelfService_Apply
   - filename: 2026-07-17_53938_rsa.pub
     comment: WengChangWei@53938
     added_at: 2026-07-17T08:30:07Z
