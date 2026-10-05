@@ -1,13 +1,5 @@
 user: groobyming
 keys:
-  - filename: 2026-04-08_1782_rsa.pub
-    comment: groobyming@1782
-    added_at: 2026-04-08T09:29:10Z
-    expires_at: 2026-10-05T09:29:10Z
-    revoked: false
-    environments:
-      - paas3-dev
-    remark: WeCom_SelfService_Apply
   - filename: 2026-07-21_57874_rsa.pub
     comment: groobyming@57874
     added_at: 2026-07-21T02:25:50Z
