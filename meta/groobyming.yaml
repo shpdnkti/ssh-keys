@@ -8,3 +8,11 @@ keys:
     environments:
       - bk-pmc
     remark: alexisli
+  - filename: 2026-10-08_48210_rsa.pub
+    comment: groobyming@48210
+    added_at: 2026-10-08T09:40:32Z
+    expires_at: 2027-04-06T09:40:32Z
+    revoked: false
+    environments:
+      - paas3-dev
+    remark: WeCom_SelfService_Apply
