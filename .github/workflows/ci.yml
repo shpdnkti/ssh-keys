@@ -62,6 +62,7 @@ jobs:
       - uses: actions/checkout@v4
         with:
           ref: main
+          fetch-depth: 0
       - name: Cleanup expired keys
         id: cleanup
         run: |
@@ -83,4 +84,4 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Publish validated keys
         if: github.event_name != 'schedule' || steps.cleanup.outputs.changed == 'true'
-        run: git push origin HEAD:main
+        run: bash scripts/publish_keys.sh

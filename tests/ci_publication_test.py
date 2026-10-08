@@ -100,7 +100,9 @@ exit "${FAIL_GENERATE:-0}"
                 self.assertEqual(condition, "github.event_name != 'schedule' || steps.cleanup.outputs.changed == 'true'")
                 if event == 'schedule' and not changed:
                     continue
-            result = subprocess.run(['bash', '-e', '-o', 'pipefail', '-c', step['run']],
+            # Real retry behavior is covered by publication_retry_test.py.
+            command = 'git push origin HEAD:main' if step['run'] == 'bash scripts/publish_keys.sh' else step['run']
+            result = subprocess.run(['bash', '-e', '-o', 'pipefail', '-c', command],
                                     cwd=self.repo, env=env, text=True, capture_output=True)
             if result.returncode:
                 return result.returncode
@@ -176,6 +178,8 @@ if in_place:
                                        'push push origin HEAD', 'push push origin HEAD'])
 
     def test_single_publication_after_validation_and_generation(self):
+        self.assertEqual(STEPS[-1]['run'], 'bash scripts/publish_keys.sh')
+        self.assertEqual(STEPS[0]['with']['fetch-depth'], 0)
         self.expire()
         self.assertEqual(self.run_job('schedule'), 0)
         self.assertEqual(self.calls(), ['cleanup', 'validate', 'generate', 'push push origin HEAD:main'])
