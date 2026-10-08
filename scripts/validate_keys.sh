@@ -69,7 +69,8 @@ for meta_file in "${META_DIR}"/*.yaml; do
             env=$($YQ e ".keys[$i].environments[$j]" "$meta_file")
             #echo "DEBUG: env='$env'"
             # 检查 env 是否在 envs.yaml 中或为 "all"
-            if [[ "$env" != "all" ]] && ! list_environments | grep -q "^$env$"; then
+            # Drain the producer: grep -q can cause SIGPIPE under pipefail.
+            if [[ "$env" != "all" ]] && ! list_environments | grep -Fx -- "$env" >/dev/null; then
                 die "$meta_file 中密钥 $filename 的环境 $env 不在 envs.yaml 中定义"
             fi
         done

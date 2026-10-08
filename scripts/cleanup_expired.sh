@@ -78,7 +78,10 @@ if git diff --quiet; then
 else
   git add -A -- meta/ keys/
   git commit -m "CI: Cleanup invalid SSH key metadata \n$(printf -- "- %s\n" "${cleaned_keys[@]}")"
-  git push origin "$BRANCH"
+  # CI defers publication until validation and every generated file succeed.
+  if [[ "${SKIP_PUSH:-false}" != "true" ]]; then
+    git push origin "$BRANCH"
+  fi
 
   # # 生成 PR 描述
   # PR_BODY=$(

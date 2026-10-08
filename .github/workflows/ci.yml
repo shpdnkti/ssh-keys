@@ -55,6 +55,9 @@ jobs:
     concurrency:
       group: ssh-keys-main-writer
       cancel-in-progress: false
+    env:
+      # Keep intermediate commits local until validation and generation succeed.
+      SKIP_PUSH: 'true'
     steps:
       - uses: actions/checkout@v4
         with:
@@ -71,10 +74,13 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Validate cleaned repository
-        if: github.event_name == 'push' || steps.cleanup.outputs.changed == 'true'
+        if: github.event_name != 'schedule' || steps.cleanup.outputs.changed == 'true'
         run: bash scripts/validate_keys.sh
       - name: Regenerate authorized_keys
-        if: github.event_name == 'push' || steps.cleanup.outputs.changed == 'true'
+        if: github.event_name != 'schedule' || steps.cleanup.outputs.changed == 'true'
         run: bash scripts/deploy_keys.sh
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Publish validated keys
+        if: github.event_name != 'schedule' || steps.cleanup.outputs.changed == 'true'
+        run: git push origin HEAD:main

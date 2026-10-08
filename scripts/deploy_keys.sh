@@ -103,7 +103,10 @@ for env in $(list_environments); do
     # 执行提交操作
     git add "$OUTPUT_FILE"
     git commit -m "CI: Update authorized_keys for $env (generated $(date -u +"%Y-%m-%d"))"
-    git push origin HEAD
+    # CI publishes cleanup and all environments together after this script succeeds.
+    if [[ "${SKIP_PUSH:-false}" != "true" ]]; then
+        git push origin HEAD
+    fi
     echo "✅ authorized_keys for $env 已更新并提交"
     unset lines
 done

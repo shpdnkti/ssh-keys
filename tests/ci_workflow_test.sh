@@ -64,12 +64,12 @@ test_push_always_validates_and_deploys_after_cleanup() {
   assert_contains 'echo "changed=true" >> "$GITHUB_OUTPUT"' "$cleanup_run" "cleanup 未输出变更状态"
 
   assert_equal \
-    "github.event_name == 'push' || steps.cleanup.outputs.changed == 'true'" \
+    "github.event_name != 'schedule' || steps.cleanup.outputs.changed == 'true'" \
     "$(workflow_value '.jobs.cleanup.steps[] | select(.name == "Validate cleaned repository") | .if')" \
     "清理后校验条件不正确"
 
   assert_equal \
-    "github.event_name == 'push' || steps.cleanup.outputs.changed == 'true'" \
+    "github.event_name != 'schedule' || steps.cleanup.outputs.changed == 'true'" \
     "$(workflow_value '.jobs.cleanup.steps[] | select(.name == "Regenerate authorized_keys") | .if')" \
     "清理后部署条件不正确"
 }
