@@ -1,0 +1,10 @@
+user: zhangsi44
+keys:
+  - filename: 2026-10-10_18450_rsa.pub
+    comment: zhangsi44@18450
+    added_at: 2026-10-10T09:37:19Z
+    expires_at: 2027-04-08T09:37:19Z
+    revoked: false
+    environments:
+      - paas3-dev
+    remark: WeCom_SelfService_Apply
