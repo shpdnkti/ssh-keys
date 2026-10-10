@@ -1,2 +1,10 @@
 user: liuwenping
-keys: []
+keys:
+  - filename: 2026-10-10_44861_rsa.pub
+    comment: liuwenping@44861
+    added_at: 2026-10-10T09:32:56Z
+    expires_at: 2027-04-08T09:32:56Z
+    revoked: false
+    environments:
+      - paas3-dev
+    remark: WeCom_SelfService_Apply
