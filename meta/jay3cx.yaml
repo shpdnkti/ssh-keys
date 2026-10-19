@@ -1,2 +1,10 @@
 user: jay3cx
-keys: []
+keys:
+  - filename: 2026-10-19_17314_rsa.pub
+    comment: jay3cx@17314
+    added_at: 2026-10-19T07:13:41Z
+    expires_at: 2027-04-17T07:13:41Z
+    revoked: false
+    environments:
+      - paas3-dev
+    remark: WeCom_SelfService_Apply
