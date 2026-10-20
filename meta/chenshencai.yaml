@@ -1,2 +1,10 @@
 user: chenshencai
-keys: []
+keys:
+  - filename: 2026-10-20_23312_rsa.pub
+    comment: chenshencai@23312
+    added_at: 2026-10-20T01:55:11Z
+    expires_at: 2027-04-20T13:55:11Z
+    revoked: false
+    environments:
+      - paas3-dev
+    remark: ''
