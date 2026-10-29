@@ -67,3 +67,11 @@ keys:
     environments:
       - paas3-dev
     remark: ''
+  - filename: 2026-10-29_44181_rsa.pub
+    comment: shpdnkti@44181
+    added_at: 2026-10-29T03:20:48Z
+    expires_at: 2027-04-29T15:20:48Z
+    revoked: false
+    environments:
+      - paas3-dev
+    remark: ''
