@@ -8,3 +8,11 @@ keys:
     environments:
       - bk-pmc
     remark: v_gwqiiguo
+  - filename: 2026-10-30_31227_rsa.pub
+    comment: Griklit@31227
+    added_at: 2026-10-30T10:33:40Z
+    expires_at: 2027-04-28T10:33:40Z
+    revoked: false
+    environments:
+      - paas3-dev
+    remark: WeCom_SelfService_Apply
