@@ -1,0 +1,10 @@
+user: huangpixu
+keys:
+  - filename: 2026-10-30_35045_rsa.pub
+    comment: huangpixu@35045
+    added_at: 2026-10-30T07:46:12Z
+    expires_at: 2027-04-28T07:46:12Z
+    revoked: false
+    environments:
+      - paas3-dev
+    remark: WeCom_SelfService_Apply
