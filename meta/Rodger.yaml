@@ -16,3 +16,11 @@ keys:
     environments:
       - bk-pmc
     remark: WeCom_SelfService_Apply
+  - filename: 2026-11-25_33121_rsa.pub
+    comment: Rodger@33121
+    added_at: 2026-11-25T07:28:28Z
+    expires_at: 2026-12-25T07:28:28Z
+    revoked: false
+    environments:
+      - bk-pmc
+    remark: ''
