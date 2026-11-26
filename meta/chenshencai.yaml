@@ -8,3 +8,11 @@ keys:
     environments:
       - paas3-dev
     remark: ''
+  - filename: 2026-11-26_47855_rsa.pub
+    comment: chenshencai@47855
+    added_at: 2026-11-26T11:30:19Z
+    expires_at: 2027-05-27T23:30:19Z
+    revoked: false
+    environments:
+      - bk-pmc
+    remark: ''
